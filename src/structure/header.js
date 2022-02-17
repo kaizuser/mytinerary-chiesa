@@ -13,8 +13,8 @@ export default function Header(){
 			<nav className='h-20 flex justify-between items-center'> 
 				<h1 className='header m-3 mb-5'>My Tinerary</h1>
 
-				<a className='h-6 px-5 py-2 mt-3 mx-3 h-8 text-xl rounded-xl bg-blue-400 border-b-4 border-white hover:bg-blue-200 hover:border-blue-400 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Cities</a>
 				<a className='h-6 px-5 py-2 mt-3 mx-3 h-8 text-xl rounded-xl bg-blue-400 border-b-4 border-white hover:bg-blue-200 hover:border-blue-400 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Home</a>
+				<a className='h-6 px-5 py-2 mt-3 mx-3 h-8 text-xl rounded-xl bg-blue-400 border-b-4 border-white hover:bg-blue-200 hover:border-blue-400 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Cities</a>
 
 			</nav>
 
