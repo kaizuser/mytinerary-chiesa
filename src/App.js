@@ -1,12 +1,16 @@
 import './App.css';
-import Header from './structure/header'
-import Main from './structure/main'
+import Header from './structure/Header'
+import Hero from './structure/Hero'
 
 function App() {
 	return (
 		<>
 		<Header/>
-		<Main/>
+		<main className='w-full min-h-screen'>
+			<Hero/>
+			<p>hola</p>
+		</main>
+		
 		</>
 	  );
 }

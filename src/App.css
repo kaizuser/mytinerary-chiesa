@@ -4,19 +4,65 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,300;1,400&display=swap');
 
-.header{
+* {
 	font-family: 'Lato', sans-serif;
-	font-weight:300;
-	font-size:3.5rem;
 }
 
-header:hover #logo-container #logo{
-	transform:rotate(360deg);
+header:hover .logo-container #logo{
+	transform:rotate(360deg)
 }
 
-h2, h3{
-	font-family: 'Lato', sans-serif;
-	font-weight:400
+.hero-background{
+	height:91vh;
+	background-image: url('https://cdn.wallpapersafari.com/17/73/0UfKOg.jpg');
+	background-position:right top;
+	background-size:cover;
+	-webkit-transition:background-position 1.5s ease-in-out;  
+	-moz-transition:background-position 1.5s ease-in-out;  
+	-o-transition:background-position 1.5s ease-in-out;  
+	transition:background-position 1.5s ease-in-out; 
+	-webkit-clip-path: polygon(0 0, 0 100px, 100px 80px, 100px 0);
+	clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 0%);
+}
+
+.hero-background:hover{
+	background-position:center
+}
+
+.eslogan{
+	top:22.5rem;
+	left:2.5vw;
+}
+
+.eslogan-text{
+	font-size:4.5vw;
+	transition:text-shadow .75s ease;
+        text-shadow: 0 1px 0 #ffffff, 0 2px 0 #ffffff,
+        0 1px 2px #ffffff, 0 2px 2px #ffffff,
+	0 3px 2px #ffffff, 0 4px 2px #ffffff,
+	0 5px 2px #ffffff, 0 6px 2px #ffffff,
+	0 7px 2px #ffffff, 0 8px 2px #ffffff,
+	0 9px 2px #ffffff, 0 10px 2px #ffffff,
+	0 20px 30px rgba(0, 0, 0, 0.5);
+}
+
+.eslogan-text:hover{
+	cursor:pointer;
+        text-shadow: 0 1px 0 #7a7a7a, 0 2px 0 #7a7a7a,
+        0 1px 2px #7a7a7a, 0 2px 2px #7a7a7a,
+	0 3px 2px #7a7a7a, 0 4px 2px #7a7a7a,
+	0 5px 2px #7a7a7a, 0 6px 2px #7a7a7a,
+	0 7px 2px #7a7a7a, 0 8px 2px #7a7a7a,
+	0 9px 2px #7a7a7a, 0 10px 2px #7a7a7a,
+	0 20px 30px rgba(0, 0, 0, 0.5);
+}
+
+.e2{
+	top:14rem
+}
+
+.e3{
+	top:28rem
 }
 
 
