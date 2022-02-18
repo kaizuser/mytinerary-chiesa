@@ -30,7 +30,7 @@ header:hover .logo-container #logo{
 }
 
 .eslogan{
-	top:22.5rem;
+	top:19rem;
 	left:2.5vw;
 }
 
@@ -65,6 +65,15 @@ header:hover .logo-container #logo{
 	top:28rem
 }
 
+.call-1{
+	-webkit-clip-path: polygon(0 0, 0 100px, 100px 80px, 100px 0);
+	clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 0%);
+}
+
+.call-2{
+	-webkit-clip-path: polygon(0 0, 0 100px, 100px 80px, 100px 0);
+	clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
+}
 
 
 

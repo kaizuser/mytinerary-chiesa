@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function Header(){
 	return(
+		<>
 		<header className='w-full h-24 bg-white border-b-2 border-black flex justify-between items-center hover:bg-gray-200 transition duration-300 ease-in'>
 			<div id='logo-container' className='logo-container flex justify-center items-center'>
 				<svg id='logo' className='m-2 mx-5 transition duration-700 ease-in-out' xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" viewBox="0 0 16 16">
@@ -30,6 +31,7 @@ export default function Header(){
 				</svg>
 			</div>
 		</header>
+		</>
 	)
 }
 
