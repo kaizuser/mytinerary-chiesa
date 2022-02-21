@@ -3,7 +3,8 @@ import React from 'react'
 export default function Footer(){
 	return(
 		<>
-		<footer className="w-full flex justify-center items-center flex-col">
+		<footer className="w-full flex justify-center items-center">
+		<div className='mx-6'>
 		  <div className="container pt-9">
 		    <div className="flex justify-center mb-9">
 		      <a href="#!" className="m-5 text-gray-800">
@@ -21,6 +22,12 @@ export default function Footer(){
 		    </div>
 		  </div>
 		  <div className=""> © 2021 Copyright: Thiago Chiesa</div>
+		</div>
+		<div className='mx-6 flex justify-center items-center flex-wrap'>
+				<a className='h-6 px-5 py-2 mt-3 mx-3 text-xl rounded-xl bg-blue-400 hover:bg-blue-300 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Home</a>
+				<a className='h-6 px-5 py-2 mt-3 mx-3 text-xl rounded-xl bg-blue-400 hover:bg-blue-300 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Cities</a>
+
+		</div>
 		</footer>-
 		</>
 	)

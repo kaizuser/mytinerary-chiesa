@@ -36,6 +36,7 @@ header:hover .logo-container #logo{
 
 .eslogan-text{
 	font-size:4.5vw;
+	flex-wrap:wrap;
 	transition:text-shadow .75s ease;
         text-shadow: 0 1px 0 #ffffff, 0 2px 0 #ffffff,
         0 1px 2px #ffffff, 0 2px 2px #ffffff,
@@ -77,13 +78,35 @@ header:hover .logo-container #logo{
 
 .slide-container{
 	min-height:100vh;
-	width:100vw;
+	width:100%;
 }
 
 .carousel-img{
 	z-index:1;
 	width:45rem;
 	height:30rem;
+}
+
+@media screen and (max-width:1160px){
+	header{
+		flex-direction:column;
+		height:12rem !important;
+		justify-content:center;
+		align-items:center;
+	}
+
+	.e1{
+		top:7rem;
+	}
+
+	.e2{
+		top:20rem
+	}
+
+	.e3{
+		top:35rem
+	}
+
 }
 
 
