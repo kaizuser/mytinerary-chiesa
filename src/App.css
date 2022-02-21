@@ -75,6 +75,16 @@ header:hover .logo-container #logo{
 	clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
 }
 
+.slide-container{
+	min-height:100vh;
+	width:100vw;
+}
+
+.carousel-img{
+	z-index:1;
+	width:45rem;
+	height:30rem;
+}
 
 
 

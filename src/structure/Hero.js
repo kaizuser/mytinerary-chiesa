@@ -3,7 +3,7 @@ import React from 'react'
 export default function Hero(){
 	return(
 		<>
-		<div className='flex justify-center items-center bg-blue-400'>
+		<div className='w-full flex justify-center items-center bg-blue-400'>
 			<div className='eslogan w-3/4 bg-white absolute'>
 				<h2 className='e1 eslogan-text absolute'>Find</h2>
 
