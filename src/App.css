@@ -109,5 +109,38 @@ header:hover .logo-container #logo{
 
 }
 
+@media screen and (max-width:770px){
+	header{
+		padding:0;
+		margin:0;
+		justify-content:space-evenly!important;
+		flex-direction:column!important;
+		align-items:center!important;
+		height:24rem!important;
+	}
+
+	nav{
+		flex-direction:column;
+	}
+
+	.e1{
+		top:18rem;
+	}
+
+	.e2{
+		top:35rem
+	}
+
+	.e3{
+		top:50rem
+	}
+}
+
+@media screen and (max-width:500px){
+	footer{
+		flex-direction:column;
+	}
+}
+
 
 

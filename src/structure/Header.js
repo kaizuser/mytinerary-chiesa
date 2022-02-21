@@ -10,8 +10,8 @@ export default function Header(){
 				  <path d="M1.5 2a.5.5 0 0 1 0-1v1zm13-1a.5.5 0 0 1 0 1V1zm-13 0h13v1h-13V1z"/>
 				</svg>
 
-
 				<h1 className='text-6xl m-3 mb-4'>My Tinerary</h1>
+
 			</div>
 
 			<nav className='h-20 flex justify-between items-center'> 
