@@ -1,4 +1,5 @@
 const cities = [
+	[
 	{
 		"id":1,
 		"name":"Múnich",
@@ -19,7 +20,8 @@ const cities = [
 		"id":4,
 		"name":"New york",
 		"src":"https://i.pinimg.com/originals/98/77/cb/9877cb1e1e402d4a61a88838dd8aa0bd.jpg"
-	},
+	}],
+	[
 	{
 		"id":5,
 		"name":"Toronto",
@@ -39,7 +41,8 @@ const cities = [
 		"id":8,
 		"name":"Hong Kong",
 		"src":"https://wallpaper.dog/large/5444756.jpg"
-	},
+	}],
+	[
 	{
 		"id":9,
 		"name":"Berlín",
@@ -60,6 +63,7 @@ const cities = [
 		"name":"Amsterdam",
 		"src":"https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg"
 	}
+	]
 ]
 
 export default cities;

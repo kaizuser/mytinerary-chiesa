@@ -8,6 +8,10 @@
 	font-family: 'Lato', sans-serif;
 }
 
+body{
+	width:100%
+}
+
 header:hover .logo-container #logo{
 	transform:rotate(360deg)
 }
@@ -30,11 +34,12 @@ header:hover .logo-container #logo{
 }
 
 .eslogan{
-	top:19rem;
-	left:2.5vw;
+	margin-left:2rem;
+	height:80vh;
 }
 
 .eslogan-text{
+	z-index:1;
 	font-size:4.5vw;
 	flex-wrap:wrap;
 	transition:text-shadow .75s ease;
@@ -56,14 +61,6 @@ header:hover .logo-container #logo{
 	0 7px 2px #7a7a7a, 0 8px 2px #7a7a7a,
 	0 9px 2px #7a7a7a, 0 10px 2px #7a7a7a,
 	0 20px 30px rgba(0, 0, 0, 0.5);
-}
-
-.e2{
-	top:14rem
-}
-
-.e3{
-	top:28rem
 }
 
 .call-1{
@@ -95,18 +92,6 @@ header:hover .logo-container #logo{
 		align-items:center;
 	}
 
-	.e1{
-		top:7rem;
-	}
-
-	.e2{
-		top:20rem
-	}
-
-	.e3{
-		top:35rem
-	}
-
 }
 
 @media screen and (max-width:770px){
@@ -123,17 +108,6 @@ header:hover .logo-container #logo{
 		flex-direction:column;
 	}
 
-	.e1{
-		top:18rem;
-	}
-
-	.e2{
-		top:35rem
-	}
-
-	.e3{
-		top:50rem
-	}
 }
 
 @media screen and (max-width:500px){

@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './structure/Header'
-import Hero from './structure/Hero'
-import CallToAction from './structure/CallToAction'
-import Footer from './structure/Footer'
-import Carousel from './structure/Carousel'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import CallToAction from './components/CallToAction'
+import Footer from './components/Footer'
+import CarouselApp from './components/Carousel'
 import './App.css';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 		<main className='w-full min-h-screen'>
 			<Hero/>
 			<CallToAction/>
-			<Carousel/>
+			<CarouselApp/>
 		</main>
 		<Footer/>
 		</>
