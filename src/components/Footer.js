@@ -24,13 +24,15 @@ export default function Footer(){
 		  </div>
 		  <div className=""> © 2021 Copyright: Thiago Chiesa</div>
 		</div>
-		<div className='mx-6 flex justify-center items-center flex-wrap'>
+		<div className='mx-6 my-3 flex justify-around items-center flex-wrap'>
 			<Link to={'home'}>
-				<span className='h-6 px-5 py-2 mt-3 mx-3 text-xl rounded-xl bg-blue-400 hover:bg-blue-300 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Home</span>
+
+			    <span className='mx-4 my-3 text-gray-500 hover:text-gray-700 cursor-pointer'>Home</span>
 			</Link>
 
 			<Link to={'cities'}>
-				<span className='h-6 px-5 py-2 mt-3 mx-3 text-xl rounded-xl bg-blue-400 hover:bg-blue-300 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Cities</span>
+
+			    <span className='mx-4 text-gray-500 hover:text-gray-700 cursor-pointer'>Cities</span>
 			</Link>
 
 		</div>

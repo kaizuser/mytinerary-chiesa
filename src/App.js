@@ -1,8 +1,8 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Footer from './components/Footer'
-import Header from './components/Header.js'
-import Cities from './Cities.js'
-import Home from './Home'
+import Header from './components/Header'
+import Cities from './components/Cities'
+import Home from './components/Home'
 
 function App() {
 	return (
@@ -10,6 +10,7 @@ function App() {
 		<BrowserRouter>
 			<Header/>
 			<Routes>
+				<Route path='/' element={<Home/>}/>
 				<Route path='/home' element={<Home/>}/>
 				<Route path='/cities' element={<Cities/>}/>
 			</Routes>

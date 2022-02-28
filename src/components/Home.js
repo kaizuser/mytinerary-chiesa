@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Hero from './components/Hero'
-import CallToAction from './components/CallToAction'
-import CarouselApp from './components/Carousel'
-import './App.css';
+import Hero from './Hero'
+import CallToAction from './CallToAction'
+import CarouselApp from './Carousel'
+import '../App.css';
 
 function Home() {
 	return (
