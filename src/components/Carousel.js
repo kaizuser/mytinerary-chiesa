@@ -11,7 +11,7 @@ export default class CarouselApp extends React.Component{
 		{
 			cities.map(slide => 
 
-			<Carousel.Item className='mb-5'>
+			<Carousel.Item className='mb-5' key={slide[0].name}>
 				<div className='slide-container flex justify-center flex-wrap items-center'>
 				{
 					slide.map(city => 

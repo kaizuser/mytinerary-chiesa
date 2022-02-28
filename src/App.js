@@ -1,21 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/Header'
-import Hero from './components/Hero'
-import CallToAction from './components/CallToAction'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Footer from './components/Footer'
-import CarouselApp from './components/Carousel'
-import './App.css';
+import Header from './components/Header.js'
+import Cities from './Cities.js'
+import Home from './Home'
 
 function App() {
 	return (
 		<>
-		<Header/>
-		<main className='w-full min-h-screen'>
-			<Hero/>
-			<CallToAction/>
-			<CarouselApp/>
-		</main>
-		<Footer/>
+		<BrowserRouter>
+			<Header/>
+			<Routes>
+				<Route path='/home' element={<Home/>}/>
+				<Route path='/cities' element={<Cities/>}/>
+			</Routes>
+			<Footer/>
+		</BrowserRouter>
 		</>
 	  );
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export default function Footer(){
 	return(
@@ -24,8 +25,13 @@ export default function Footer(){
 		  <div className=""> © 2021 Copyright: Thiago Chiesa</div>
 		</div>
 		<div className='mx-6 flex justify-center items-center flex-wrap'>
-				<a className='h-6 px-5 py-2 mt-3 mx-3 text-xl rounded-xl bg-blue-400 hover:bg-blue-300 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Home</a>
-				<a className='h-6 px-5 py-2 mt-3 mx-3 text-xl rounded-xl bg-blue-400 hover:bg-blue-300 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Cities</a>
+			<Link to={'home'}>
+				<span className='h-6 px-5 py-2 mt-3 mx-3 text-xl rounded-xl bg-blue-400 hover:bg-blue-300 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Home</span>
+			</Link>
+
+			<Link to={'cities'}>
+				<span className='h-6 px-5 py-2 mt-3 mx-3 text-xl rounded-xl bg-blue-400 hover:bg-blue-300 transition duration-300 ease-in flex justify-center items-center' href='../App.js'>Cities</span>
+			</Link>
 
 		</div>
 		</footer>-
