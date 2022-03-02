@@ -68,6 +68,21 @@ db.cities.insertMany([
                 "name":"Amsterdam",
                 "country":"Netherlands",
                 "src":"https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg"
+        },
+        {
+                "name":"Buenos Aires",
+                "country":"Argentina",
+                "src":"https://traveler.marriott.com/es/wp-content/uploads/sites/2/2019/04/GI-968387654-Nightlife-header.jpg"
+        },
+        {
+                "name":"Boston",
+                "country":"EEUU",
+                "src":"https://www.visittheusa.co/sites/default/files/styles/16_9_1280x720/public/images/hero_media_image/2017-06/de6f732d8950b74b550d885beab53c37.jpeg?itok=V487sCW7"
+        },
+        {
+                "name":"Sao Paulo",
+                "country":"Brasil",
+                "src":"https://www.cooperatingvolunteers.com/wp-content/uploads/2017/05/estatua-de-jesucristo-en-brasil-brazil-jesus-christ-statue-1920x1200-wallpaper.jpg"
         }
         
 ]);
