@@ -21,37 +21,25 @@ import {Link} from 'react-router-dom'
 const home = [
   {
     name: 'Home',
-    icon: ChartBarIcon,
   },
 ]
 
 const cities = [
 	{
 		name:'Cities',
-		icon: ChartBarIcon,
 	}
 ]
 
-const resources = [
-  {
-    name: 'Help Center',
-    description: 'Get all of your questions answered in our forums or contact support.',
-    href: '#',
-    icon: SupportIcon,
-  },
-  {
-    name: 'Guides',
-    description: 'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
-    icon: BookmarkAltIcon,
-  },
-  {
-    name: 'Events',
-    description: 'See what meet-ups and other events we might be planning near you.',
-    href: '#',
-    icon: CalendarIcon,
-  },
-  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
+const sign_up = [
+	{
+		name:'Sign up'
+	}
+]
+
+const log_in = [
+	{
+		name:'Log in'
+	}
 ]
 
 function classNames(...classes) {
@@ -60,17 +48,16 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Popover className="relative bg-white z-10">
-      <div className="sm:px-6">
+  <Popover className="relative bg-white z-10">
+	  <div className="sm:px-6 hover:bg-blue-100 transition duration-300 ease-in">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
               <span className="sr-only">Workflow</span>
-              <img
-                className="h-8 w-auto sm:h-10"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                alt=""
-              />
+		<svg className='m-2'xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"viewBox="0 0 16 16">
+		  <rect width="4" height="12" rx="1" transform="matrix(1 0 0 -1 6 15)"/>
+		  <path d="M1.5 2a.5.5 0 0 1 0-1v1zm13-1a.5.5 0 0 1 0 1V1zm-13 0h13v1h-13V1z"/>
+		</svg>
             </a>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
@@ -103,7 +90,6 @@ export default function Example() {
                               key={item.name}
                               className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                             >
-                              <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
                               <div className="ml-4">
                                 <p className="text-base font-medium text-gray-900">{item.name}</p>
                                 <p className="mt-1 text-sm text-gray-500">{item.description}</p>
@@ -154,14 +140,18 @@ export default function Example() {
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-              Sign in
+              Sign up
             </a>
             <a
               href="#"
               className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
             >
-              Sign up
+              Sign login
             </a>
+		  <svg className='ml-5 hover:text-blue-500 transition duration-300 ease-in cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+		  <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+		  <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
+		</svg>
           </div>
         </div>
       </div>
@@ -196,16 +186,72 @@ export default function Example() {
               <div className="mt-6">
                 <nav className="grid gap-y-8">
                   {home.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+		    <Link to={'home'} key={item.name}>
+                    <div
+                      className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 cursor-pointer"
                     >
-                      <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                      <span className="ml-3 text-base font-medium text-gray-900">{item.name}</span>
-                    </a>
+			<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" viewBox="0 0 16 16">
+			  <path fillRule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+			  <path fillRule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+			</svg>
+
+		      <div className="ml-4">
+
+			<p className="text-base font-medium text-gray-900">{item.name}</p>
+		      </div>
+                    </div>
+		    </Link>
                   ))}
-                </nav>
+
+		  {cities.map((item) => (
+		    <Link to={'cities'} key={item.name}>
+		    <div
+		      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer"
+		    >
+			<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"viewBox="0 0 16 16">
+			  <path d="M4.5 1A1.5 1.5 0 0 0 3 2.5V3h4v-.5A1.5 1.5 0 0 0 5.5 1h-1zM7 4v1h2V4h4v.882a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V13H9v-1.5a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5V13H1V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882V4h4zM1 14v.5A1.5 1.5 0 0 0 2.5 16h3A1.5 1.5 0 0 0 7 14.5V14H1zm8 0v.5a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5V14H9zm4-11H9v-.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5V3z"/>
+			</svg>
+		      <div className="ml-4">
+
+			<p className="text-base font-medium text-gray-900">{item.name}</p>
+		      </div>
+		    </div>
+		    </Link>
+		  ))}
+		  {sign_up.map((item) => (
+		    <a
+		      key={item.name}
+
+		      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer"
+		    >
+			<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" viewBox="0 0 16 16">
+			  <path d="M8.5 6a.5.5 0 1 0-1 0h-2A1.5 1.5 0 0 0 4 7.5v2A1.5 1.5 0 0 0 5.5 11h.473l-.447 1.342a.5.5 0 1 0 .948.316L7.027 11H7.5v1a.5.5 0 0 0 1 0v-1h.473l.553 1.658a.5.5 0 1 0 .948-.316L10.027 11h.473A1.5 1.5 0 0 0 12 9.5v-2A1.5 1.5 0 0 0 10.5 6h-2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-2z"/>
+			  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+			</svg>
+		      <div className="ml-4">
+			<p className="text-base font-medium text-gray-900">{item.name}</p>
+			<p className="mt-1 text-sm text-gray-500">{item.description}</p>
+		      </div>
+		    </a>
+
+		  ))}
+		  {log_in.map((item) => (
+		    <a
+		      key={item.name}
+
+		      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer"
+		    >
+			<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" viewBox="0 0 16 16">
+			  <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+			  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+			</svg>
+		      <div className="ml-4">
+			<p className="text-base font-medium text-gray-900">{item.name}</p>
+			<p className="mt-1 text-sm text-gray-500">{item.description}</p>
+		      </div>
+		    </a>
+		  ))}
+		</nav>
               </div>
             </div>
           </div>

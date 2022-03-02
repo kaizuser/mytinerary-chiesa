@@ -9,53 +9,64 @@ db.cities.drop();
 // Insert a few documents into the sales collection.
 db.cities.insertMany([
         {
-                "name":"Múnich",
+                "name":"Munich",
+                "country":'Germany',
                 "src":"https://a.cdn-hotels.com/gdcs/production149/d1611/b736f5e6-182e-4365-9598-c413260d282a.jpg"
 
         },
         {
                 "name":"Tokio",
+                "country":"Japan",
                 "src":"https://www.gotokyo.org/es/plan/tokyo-outline/images/main.jpg"
         },
         {
-                "name":"París",
+                "name":"Paris",
+                "country":"France",
                 "src":"https://www.vivireuropa.com/wp-content/uploads/2019/03/9779174434_87bf9d7cc1_b.jpg.webp"
         },
         {
                 "name":"New york",
+                "country":"EEUU",
                 "src":"https://i.pinimg.com/originals/98/77/cb/9877cb1e1e402d4a61a88838dd8aa0bd.jpg"
         },
         {
                 "name":"Toronto",
+                "country":"Canada",
                 "src":"https://wp-growpro.s3-eu-west-1.amazonaws.com/media/2018/07/que-ver-en-toronto-canada-00.jpg"
         },
         {
                 "name":"London",
+                "country":"England",
                 "src":"https://wallpapercave.com/wp/PuwoAuJ.jpg"
         },
         {
-                "name":"Zúrich",
+                "name":"Zurich",
+                "country":"Switzerland",
                 "src":"https://wallpaperaccess.com/full/7227699.jpg"
         },
         {
                 "name":"Hong Kong",
+                "country":"China",
                 "src":"https://wallpaper.dog/large/5444756.jpg"
         },        
         {
-                "name":"Berlín",
+                "name":"Berlin",
+                "country":"Germany",
                 "src":"https://image.winudf.com/v2/image1/Y29tLmFwcDNkd2FsbHBhcGVyaGQuYmVybGlud2FsbHBhcGVyX3NjcmVlbl81XzE1NjcwMjA4MzFfMDkz/screen-5.jpg?fakeurl=1&type=.jpg"
         },
         {
-                "id":10,
                 "name":"Rome",
+                "country":"Italy",
                 "src":"https://wallpaperaccess.com/full/115106.jpg"
         },
         {
-                "name":"Sídney",
+                "name":"Sidney",
+                "country":"Australia",
                 "src":"https://www.saulsaidel.com/media/2020/08/sydney-australia.jpg"
         },
         {
                 "name":"Amsterdam",
+                "country":"Netherlands",
                 "src":"https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg"
         }
         
