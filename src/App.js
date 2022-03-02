@@ -3,6 +3,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Cities from './components/Cities'
 import Home from './components/Home'
+import CardDetails from './components/CardDetails'
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 				<Route path='/' element={<Home/>}/>
 				<Route path='/home' element={<Home/>}/>
 				<Route path='/cities' element={<Cities/>}/>
+				<Route path='/cities/details/:name' element={<CardDetails/>}/>
 			</Routes>
 			<Footer/>
 		</BrowserRouter>
