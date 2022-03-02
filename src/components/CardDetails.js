@@ -13,7 +13,7 @@ export default function CardDetails() {
 		<div className='flex justify-center items-center'>
 			{
 				card.map(city => 
-				<div className='w-2/4 h-screen bg-blue-200 flex justify-center items-center' key={city.name}>  
+				<div className='w-full h-screen bg-blue-200 flex justify-center items-center' key={city.name}>  
 				 <div className="w-96 h-80 m-5 rounded overflow-hidden shadow-lg" key={city.name}>
 				  <img className="w-full h-60 object-cover" src={city.src} alt="Sunset in the mountains"/>
 
