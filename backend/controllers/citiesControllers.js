@@ -19,26 +19,51 @@ const ciudadesControllers = {
 		})
 	},
 
-	set_city: async(req, res) => {
-		console.log(req.body)
+	get_city: async(req, res) => {
+		const id = req.params.id
+		
+		let city
+		let error = null
 
-		const {city, country, src} = req.body.dataInput
+		try{
+		    city = await Cities.findOne({_id:id})
+		    console.log(city)
+		}catch(err){
+		    error = err
+		    console.log(error)
+		}
+		res.json({
+		    response: error ? 'ERROR' : city, 
+		    success: error ? false : true,
+		    error: error
+		})
+	},
+
+	set_city: async(req, res) => {
+		const {name, country, src} = req.body.dataInput
 
 		new Cities({
-			name:city,
+			name:name,
 			country:country,
 			src:src,
 		}).save()
 
-			.then((answer) => res.json({answer}))
+		.then((answer) => res.json({answer}))
 	},
 
 	delete_city: async(req, res) => {
 		const id = req.params.id
 
-		console.log(req.params)
-
 		await Cities.findOneAndDelete({_id:id})
+	},
+
+	modify_city: async(req, res) => {
+	        const id = req.params.id
+	        const city = req.body.dataInput
+
+		let modified_city = await Ciudades.findOneAndUpdate({_id:id}, city) 
+		.then((res) => res.json({res}))
+
 	}
 
 }
