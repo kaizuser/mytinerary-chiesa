@@ -10,7 +10,7 @@ const citiesReducer = (state = initialState, action)=>{
             
             return {
                 ...state,
-                cities: action.payload,
+                cities: action.payload.cities,
                 auxiliar: action.payload,
             }
             
@@ -31,11 +31,11 @@ const citiesReducer = (state = initialState, action)=>{
             }
 
         case 'filter':
-		const filtered = action.payload.cities.filter((city => city.name.toLowerCase().startsWith(action.payload.value.toLowerCase())))
+		const filtered = action.payload.cities.cities.filter((city => city.name.toLowerCase().startsWith(action.payload.value.split(' ').join('').toLowerCase())))
 
             return {
                 ...state,
-                cities: filtered
+                cities: [...filtered]
             }
 
         default:

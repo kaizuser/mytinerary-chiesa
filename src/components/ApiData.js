@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom";
 import { connect } from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions.js'
+import Filter from './Filter.js'
 
 class ApiData extends React.Component{
 	state = {
@@ -16,34 +17,49 @@ class ApiData extends React.Component{
 
 
 	render (){
-		return(
-			<>
-			<div className='w-full m-4 flex min-w-3/4 flex justify-center items-center flex-wrap'>
-			{this.props.cities.cities && this.props.cities.cities.map(city =>
-				<div className="w-96 h-80 m-5 rounded overflow-hidden shadow-lg" key={city.name}>
-				  <img className="w-full h-60 object-cover" src={city.src} alt="Sunset in the mountains"/>
+		if (this.props.cities.length >= 1){
+			return(
+				<>
+				<Filter cities={this.props.auxiliar} filter={this.props.filterCities}/>
 
-				<Link to={`/cities/details/${city.name}`}>
+				<div className='w-full m-4 flex justify-center items-center flex-wrap'>
+				{this.props.cities && this.props.cities.map(city =>
+					<div className="w-96 h-80 m-5 rounded overflow-hidden shadow-lg" key={city.name}>
+					  <img className="w-full h-60 object-cover" src={city.src} alt="Sunset in the mountains"/>
 
-					<div className="w-full h-20 flex justify-center items-center hover:bg-blue-500 transition duration-300 ease-in">
-					  <div className="font-bold text-xl mb-2 object-cover">{city.name}
-				    </div>
-				
-				   </div>
-				</Link>
+					<Link to={`/cities/details/${city.name}`}>
+
+						<div className="w-full h-20 flex justify-center items-center hover:bg-blue-500 transition duration-300 ease-in">
+						  <div className="font-bold text-xl mb-2 object-cover">{city.name}
+					    </div>
+					
+					   </div>
+					</Link>
+					</div>
+					)
+
+				}
 				</div>
-				)
+				</>
+			)
+		}
+		else {
+			return(
+				<>
+					<Filter cities={this.props.auxiliar} filter={this.props.filterCities}/>
+					<div className='w-full h-96 bg-red-300 hover:bg-blue-300 transition duration-300 ease-in flex justify-center items-center mt-5'>
+						<h1 className='text-4xl'>No cities found</h1>
+					</div>
 
-			}
-			</div>
-			</>
-		)
+				</>
+			)
+		}
 	}
 }
 
 const mapDispatchToProps = {
 	fetchCities:citiesActions.fetchCities,
-	filter:citiesActions.filterCities
+	filterCities:citiesActions.filterCities
 }
 
 const mapStateToProps = (state) => {
@@ -55,5 +71,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApiData);
-
-

@@ -24,7 +24,7 @@ const citiesActions = {
     },
 
     filterCities: (cities, value)=>{
-        return (dispatch,getState)=>{
+        return async(dispatch,getState)=>{
             dispatch({type:'filter', payload:{cities, value}})
         }
     },
