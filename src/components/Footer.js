@@ -24,7 +24,7 @@ export default function Footer(){
 		  </div>
 		  <div className=""> © 2021 Copyright: Thiago Chiesa</div>
 		</div>
-		<div className='mx-6 my-3 flex justify-around items-center flex-wrap'>
+		<div className='mx-6 my-5 flex justify-around items-center'>
 			<Link to={'home'}>
 
 			    <span className='mx-4 my-3 text-gray-500 hover:text-gray-700 cursor-pointer'>Home</span>
