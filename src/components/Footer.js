@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default function Footer(){
 	return(
 		<>
-		<footer className="w-full flex justify-center items-center">
+			<footer className="w-full h-60 flex justify-center items-center hover:bg-blue-100 transition duration-300 ease-in">
 		<div className='mx-6'>
 		  <div className="container pt-9">
 		    <div className="flex justify-center mb-9">
@@ -36,7 +36,7 @@ export default function Footer(){
 			</Link>
 
 		</div>
-		</footer>-
+		</footer>
 		</>
 	)
 }

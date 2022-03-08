@@ -16,7 +16,6 @@ class ApiData extends React.Component{
 
 
 	render (){
-		console.log(this.props.cities.cities)
 		return(
 			<>
 			<div className='w-full m-4 flex min-w-3/4 flex justify-center items-center flex-wrap'>
