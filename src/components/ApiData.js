@@ -1,52 +1,60 @@
-import React, {useEffect, useState} from 'react'
-import CardDetails from './CardDetails';
+import React from 'react'
 import {Link} from "react-router-dom";
-import axios from 'axios'
+import { connect } from 'react-redux'
+import citiesActions from '../redux/actions/citiesActions.js'
 
-export default function ApiData(props){
-	const [data, setData] = useState([])
+class ApiData extends React.Component{
+	state = {
+		citiesArray:[]
+	}
 
-	useEffect(() => {
-		axios.get(`http://localhost:4000/api/cities/`)
-			.then((response) => {
-				let cities = response.data.response.cities
-				let search = String(props.search)
-				let filtered = cities.filter(city=>city.name.toLowerCase().startsWith(search.toLowerCase().split(' ').join('')))
-
-				console.log(search.toLowerCase().split('').join(''))
+	componentDidMount(){
+		if (this.props.cities.length < 1){
+			this.props.fetchCities()
+		}
+	}
 
 
-				if (filtered.length == 0 || filtered == undefined || filtered == null){
-					setData(cities)
-					return
-				}
+	render (){
+		console.log(this.props.cities.cities)
+		return(
+			<>
+			<div className='w-full m-4 flex min-w-3/4 flex justify-center items-center flex-wrap'>
+			{this.props.cities.cities && this.props.cities.cities.map(city =>
+				<div className="w-96 h-80 m-5 rounded overflow-hidden shadow-lg" key={city.name}>
+				  <img className="w-full h-60 object-cover" src={city.src} alt="Sunset in the mountains"/>
 
-				setData(filtered)
-			})
-			.catch(error => console.log('Server request failed'))
-	}, [props.search])
+				<Link to={`/cities/details/${city.name}`}>
 
-	return(
-		<>
-                <div className='w-full m-4 flex min-w-3/4 flex justify-center items-center flex-wrap'>
-                {
-                data.map(city =>
-                        <div className="w-96 h-80 m-5 rounded overflow-hidden shadow-lg" key={city.name}>
-                          <img className="w-full h-60 object-cover" src={city.src} alt="Sunset in the mountains"/>
+					<div className="w-full h-20 flex justify-center items-center hover:bg-blue-500 transition duration-300 ease-in">
+					  <div className="font-bold text-xl mb-2 object-cover">{city.name}
+				    </div>
+				
+				   </div>
+				</Link>
+				</div>
+				)
 
-			<Link to={`/cities/details/${city.name}`}>
-
-				<div className="w-full h-20 flex justify-center items-center hover:bg-blue-500 transition duration-300 ease-in">
-				  <div className="font-bold text-xl mb-2 object-cover">{city.name}
-			    </div>
-			
-                           </div>
-			</Link>
+			}
 			</div>
-                        )
-
-                }
-                </div>
-		</>
-	)
+			</>
+		)
+	}
 }
+
+const mapDispatchToProps = {
+	fetchCities:citiesActions.fetchCities,
+	filter:citiesActions.filterCities
+}
+
+const mapStateToProps = (state) => {
+	return {
+		cities:state.citiesReducer.cities,
+		auxiliar:state.citiesReducer.auxiliar
+
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ApiData);
+
+
