@@ -84,6 +84,20 @@ header:hover .logo-container #logo{
 	height:30rem;
 }
 
+#expand-btn:hover > .un_2{
+	display:block;
+}
+
+#expand-btn:hover > .un_1{
+	display:none;
+}
+
+#expand-toggle:checked ~ .activities-container{
+	width:100%;
+	height:40vh;
+	background-color:red;
+}
+
 @media screen and (max-width:1160px){
 	header{
 		flex-direction:column;
