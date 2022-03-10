@@ -11,7 +11,7 @@ import citiesActions from './redux/actions/citiesActions.js'
 
 class App extends React.Component {
 
-	componentDidUpdate(){
+	componentDidMount(){
 		if(this.props.itineraries.length < 1){
 			this.props.fetchCities()
 			this.props.fetchItineraries()

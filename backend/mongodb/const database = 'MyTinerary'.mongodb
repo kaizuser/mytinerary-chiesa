@@ -15,7 +15,7 @@ db.itineraries.insertMany([
           "price":3,
           "duration":48,
           "likes":0,
-          "Hashtags":["trip", "enjoy", "places"],
+          "hashtags":["trip", "enjoy", "places"],
           "comments":""
         },
         {
@@ -25,7 +25,7 @@ db.itineraries.insertMany([
           "price":5,
           "duration":72,
           "likes":0,
-          "Hashtags":["trip", "enjoy", "places"],
+          "hashtags":["trip", "enjoy", "places"],
           "comments":""
         },
         {
@@ -35,7 +35,7 @@ db.itineraries.insertMany([
           "price":2,
           "duration":24,
           "likes":0,
-          "Hashtags":["trip", "enjoy", "places"],
+          "hashtags":["trip", "enjoy", "places"],
           "comments":""
         },
         {
@@ -45,7 +45,7 @@ db.itineraries.insertMany([
           "price":3,
           "duration":48,
           "likes":0,
-          "Hashtags":["trip", "enjoy","places"],
+          "hashtags":["trip", "enjoy","places"],
           "comments":""
         },
 ]);

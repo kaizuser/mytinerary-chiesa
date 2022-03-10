@@ -116,5 +116,14 @@ header:hover .logo-container #logo{
 	}
 }
 
+@media screen and (max-width:860px){
+	.itinerary-container{
+		border-radius:none !important;
+		height:50vh;
+		flex-direction:column;
+		justify-content:space-around;
+	}
+}
+
 
 
