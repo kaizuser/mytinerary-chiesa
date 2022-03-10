@@ -1,40 +1,42 @@
-import {React, useState, useEffect} from 'react'
+import React from 'react'
 import {useParams} from 'react-router-dom'
-import axios from 'axios'
-import data from './Data.js'
+import {connect} from 'react-redux' 
+import citiesActions from '../redux/actions/citiesActions.js'
+import itinerariesActions from '../redux/actions/itinerariesActions.js'
 
+class CardDetails extends React.Component{
 
-export default function CardDetails() {
-	const {name} = useParams()
-	const [card, setCard] = useState(data.filter(city => city.name == name))
+	componentDidMount(){
+		if (this.props.cities.length < 1){
+			this.props.fetchCities()
+			this.props.fetchItineraries()
+		}
+	}
 
-	return(
-		<> 
-		<div className='flex justify-center items-center'>
-			{
-				card.map(city => 
-				<div className='w-full h-screen bg-blue-200 flex justify-center items-center' key={city.name}>  
-				 <div className="w-96 h-80 m-5 rounded overflow-hidden shadow-lg" key={city.name}>
-				  <img className="w-full h-60 object-cover" src={city.src} alt="Sunset in the mountains"/>
+	render(){
+		return(
+			<> 
+			<div className='flex justify-center items-center'>
 
-
-			        <div className='flex justify-center items-center flex-col'>
-
-
-				<div className="w-full h-20 flex justify-center items-center hover:bg-blue-500 transition duration-300 ease-in cursor-pointer flex-col">
-                                  <div className="font-bold text-xl mb-2 object-cover flex justify-center items-center flex-col">{city.name}
-
-				<h1>Under construction</h1>
-				</div>
-
-				</div>
-
-				   </div>
-				</div>
-				</div>
-				)
-			}
-		</div>
-		</>
-	)
+			</div>
+			</>
+		)
+	}
 }
+
+const mapDispatchToProps = {
+	fetchCities:citiesActions.fetchCities,
+	filterCities:citiesActions.filterCities,
+	fetchItineraries:itinerariesActions.fetchItineraries
+}
+
+const mapStateToProps = (state) => {
+	return {
+		cities:state.citiesReducer.cities,
+		auxiliar:state.citiesReducer.auxiliar,
+		itineraries:state.itinerariesReducer.itineraries,
+		auxiliar_it:state.itinerariesReducer.auxiliar_it
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardDetails);

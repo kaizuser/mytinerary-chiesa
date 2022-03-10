@@ -29,9 +29,9 @@ const citiesActions = {
         }
     },
 
-    setCity: (name,price)=>{
+    setCity: (name,country, src)=>{
         return async(dispatch,getState)=>{
-            const respuesta = await axios.post('http://localhost:4000/api/productos',{name,price})
+            const respuesta = await axios.post('http://localhost:4000/api/cities/',{name, country, src})
             dispatch({type:'setCity', payload:respuesta.data.respuesta})
 
         }

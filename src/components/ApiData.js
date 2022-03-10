@@ -15,7 +15,6 @@ class ApiData extends React.Component{
 		}
 	}
 
-
 	render (){
 		if (this.props.cities.length >= 1){
 			return(
@@ -27,7 +26,7 @@ class ApiData extends React.Component{
 					<div className="w-96 h-80 m-5 rounded overflow-hidden shadow-lg" key={city.name}>
 					  <img className="w-full h-60 object-cover" src={city.src} alt="Sunset in the mountains"/>
 
-					<Link to={`/cities/details/${city.name}`}>
+					<Link to={`/cities/details/${city._id}`}>
 
 						<div className="w-full h-20 flex justify-center items-center hover:bg-blue-500 transition duration-300 ease-in">
 						  <div className="font-bold text-xl mb-2 object-cover">{city.name}
@@ -59,14 +58,13 @@ class ApiData extends React.Component{
 
 const mapDispatchToProps = {
 	fetchCities:citiesActions.fetchCities,
-	filterCities:citiesActions.filterCities
+	filterCities:citiesActions.filterCities,
 }
 
 const mapStateToProps = (state) => {
 	return {
 		cities:state.citiesReducer.cities,
-		auxiliar:state.citiesReducer.auxiliar
-
+		auxiliar:state.citiesReducer.auxiliar,
 	}
 }
 
