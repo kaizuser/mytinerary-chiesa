@@ -9,7 +9,7 @@ db.itineraries.drop();
 // Insert a few documents into the sales collection.
 db.itineraries.insertMany([
         {
-          "city":"62296caac9b47ef860aaff71",
+          "city":"62311d603dc24be657a651ce",
           "person_name":"Gabriel",
           "photo":"https://cdn.pixabay.com/photo/2014/07/09/10/04/man-388104_960_720.jpg",
           "price":3,
@@ -19,7 +19,7 @@ db.itineraries.insertMany([
           "comments":""
         },
         {
-          "city":"62296caac9b47ef860aaff71",
+          "city":"62311d603dc24be657a651ce",
           "person_name":"Tomás",
           "photo":"https://st.depositphotos.com/1269204/1219/i/600/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg",
           "price":5,
@@ -29,7 +29,7 @@ db.itineraries.insertMany([
           "comments":""
         },
         {
-          "city":"62296caac9b47ef860aaff72",
+          "city":"62311d603dc24be657a651cf",
           "person_name":"Sofía",
           "photo":"https://thumbs.dreamstime.com/b/happy-person-portrait-smiling-woman-tanned-skin-curly-hair-happy-person-portrait-smiling-young-friendly-woman-197501184.jpg",
           "price":2,
@@ -39,7 +39,7 @@ db.itineraries.insertMany([
           "comments":""
         },
         {
-          "city":"62296caac9b47ef860aaff72",
+          "city":"62311d603dc24be657a651cf",
           "person_name":"Carla",
           "photo":"https://img.freepik.com/free-photo/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university_273609-1270.jpg?size=626&ext=jpg&ga=GA1.2.1352876164.1637971200",
           "price":3,

@@ -11,78 +11,93 @@ db.cities.insertMany([
         {
                 "name":"Munich",
                 "country":'Germany',
-                "src":"https://a.cdn-hotels.com/gdcs/production149/d1611/b736f5e6-182e-4365-9598-c413260d282a.jpg"
+                "src":"https://a.cdn-hotels.com/gdcs/production149/d1611/b736f5e6-182e-4365-9598-c413260d282a.jpg",
+                "description":"A city with a big heart, as suave as it is easygoing, buzzing and yet tranquil. Munich is Germany's lifestyle capital. And on top of all this, it boasts one of the country's most beautiful squares: Marienplatz, at the heart of the city and home to the Old and New Town Halls."
 
         },
         {
                 "name":"Tokio",
                 "country":"Japan",
-                "src":"https://www.gotokyo.org/es/plan/tokyo-outline/images/main.jpg"
+                "src":"https://www.gotokyo.org/es/plan/tokyo-outline/images/main.jpg",
+                "description":"Tokyo, the world's largest metropolis, is known for top-rated restaurants, the Shibuya Crossing, Imperial Palace, cherry blossoms, markets, and more. The shopping scene includes the Harajuku and Akihabara districts. Tokyo is also famous for its vending machines, cat cafes, museums, and sacred sites.",
         },
         {
                 "name":"Paris",
                 "country":"France",
-                "src":"https://www.vivireuropa.com/wp-content/uploads/2019/03/9779174434_87bf9d7cc1_b.jpg.webp"
+                "src":"https://www.vivireuropa.com/wp-content/uploads/2019/03/9779174434_87bf9d7cc1_b.jpg.webp",
+                "description":"Paris is one of the most beautiful cities in the world. It is known worldwide for the Louvre Museum, Notre-Dame cathedral, and the Eiffel tower. It has a reputation of being a romantic and cultural city. The city is also known for its high-quality gastronomy and the terraces of its cafés."
         },
         {
                 "name":"New york",
                 "country":"EEUU",
-                "src":"https://i.pinimg.com/originals/98/77/cb/9877cb1e1e402d4a61a88838dd8aa0bd.jpg"
+                "src":"https://i.pinimg.com/originals/98/77/cb/9877cb1e1e402d4a61a88838dd8aa0bd.jpg",
+                "description":"New York is a city of diversity and dynamism. It is also a city of politics, economy and culture. It is even described as the economic and cultural capital of the world, and New York City is one of the most populous cities in the United States"
         },
         {
                 "name":"Toronto",
                 "country":"Canada",
-                "src":"https://wp-growpro.s3-eu-west-1.amazonaws.com/media/2018/07/que-ver-en-toronto-canada-00.jpg"
+                "src":"https://wp-growpro.s3-eu-west-1.amazonaws.com/media/2018/07/que-ver-en-toronto-canada-00.jpg",
+                "description":"Toronto is known for its multiculturalism, sports, and unique landmarks, such as the CN Tower. This bustling city features various cuisines, architectural mixtures, and a long history. Toronto is also home to one of the world's largest film festivals, the Toronto International Film Festival"
         },
         {
                 "name":"London",
                 "country":"England",
-                "src":"https://wallpapercave.com/wp/PuwoAuJ.jpg"
+                "src":"https://wallpapercave.com/wp/PuwoAuJ.jpg",
+                "description":"Apart from Big Ben and Buckingham Palace, London is famous for its status as one of the world's greatest cosmopolitan cities, with an incredible array of museums, shops, and restaurants. It's also known for its interesting history in regards to royalty, politics, arts, science, and architecture"
         },
         {
                 "name":"Zurich",
                 "country":"Switzerland",
-                "src":"https://wallpaperaccess.com/full/7227699.jpg"
+                "src":"https://wallpaperaccess.com/full/7227699.jpg",
+                "description":"Zurich is Switzerland's centre of economic life and education. Located in the heart of Europe, the city offers all the modern amenities of a cosmopolitan metropolis, without sacrificing its natural side. Zurich has for years ranked among the world's top cities in terms of quality of life"
         },
         {
                 "name":"Hong Kong",
                 "country":"China",
-                "src":"https://wallpaper.dog/large/5444756.jpg"
+                "src":"https://wallpaper.dog/large/5444756.jpg",
+                "description":"Hong Kong is famous for attractions such as Causeway Bay, The Peak, and Hong Kong Disneyland. A city where skyscrapers meet centuries-old temples, Hong Kong is also known for its night markets filled with delights like dim sum and egg waffles. But there's so much more to this vibrant city"
         },        
         {
                 "name":"Berlin",
                 "country":"Germany",
-                "src":"https://image.winudf.com/v2/image1/Y29tLmFwcDNkd2FsbHBhcGVyaGQuYmVybGlud2FsbHBhcGVyX3NjcmVlbl81XzE1NjcwMjA4MzFfMDkz/screen-5.jpg?fakeurl=1&type=.jpg"
+                "src":"https://image.winudf.com/v2/image1/Y29tLmFwcDNkd2FsbHBhcGVyaGQuYmVybGlud2FsbHBhcGVyX3NjcmVlbl81XzE1NjcwMjA4MzFfMDkz/screen-5.jpg?fakeurl=1&type=.jpg",
+                "description":"Berlin, the capital city of Germany, is renowned for its exceptional range of landmarks, vibrant cultural scene and way of life that's somehow all go yet relaxed. In fact, the city is best known for its striking contrasts. Historical buildings stand alongside modern architecture as the past and present intermingle"
         },
         {
                 "name":"Rome",
                 "country":"Italy",
-                "src":"https://wallpaperaccess.com/full/115106.jpg"
+                "src":"https://wallpaperaccess.com/full/115106.jpg",
+                "description":"Rome (Italian: Roma), the Eternal City, is the capital and largest city of Italy and of the Lazio region. It is famous for being the home of the ancient Roman Empire, the Seven Hills, La Dolce Vita (the sweet life), the Vatican City and Three Coins in the Fountain."
         },
         {
                 "name":"Sidney",
                 "country":"Australia",
-                "src":"https://www.saulsaidel.com/media/2020/08/sydney-australia.jpg"
+                "src":"https://www.saulsaidel.com/media/2020/08/sydney-australia.jpg",
+                "description":"Sydney is famous for its landmarks like the Sydney Opera House, Bondi Beach, and Harbour Bridge. It's also known for its gorgeous blue harbor waters, shopping, and vibrant food culture"
         },
         {
                 "name":"Amsterdam",
                 "country":"Netherlands",
-                "src":"https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg"
+                "src":"https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg",
+                "description":"Amsterdam is a worldly and exciting city. Amsterdam is popular because the city has always been a good source of liberal ideas both for the Netherlands and the world. The qualities usually thought of as Dutch are also still found in Amsterdam. Amsterdam is a city of canals."
         },
         {
                 "name":"Buenos Aires",
                 "country":"Argentina",
-                "src":"https://traveler.marriott.com/es/wp-content/uploads/sites/2/2019/04/GI-968387654-Nightlife-header.jpg"
+                "src":"https://traveler.marriott.com/es/wp-content/uploads/sites/2/2019/04/GI-968387654-Nightlife-header.jpg",
+                "description":"Buenos Aires is a multicultural city that is home to multiple ethnic and religious groups, contributing to its culture as well as to the dialect spoken in the city and in some other parts of the country. This is because since the 19th century, the city, and the country in general, has been a major recipient of millions of immigrants from all over the world, making it a melting pot where several ethnic groups live together. Thus, Buenos Aires is considered one of the most diverse cities of the Americas"
         },
         {
                 "name":"Boston",
                 "country":"EEUU",
-                "src":"https://www.visittheusa.co/sites/default/files/styles/16_9_1280x720/public/images/hero_media_image/2017-06/de6f732d8950b74b550d885beab53c37.jpeg?itok=V487sCW7"
+                "src":"https://www.visittheusa.co/sites/default/files/styles/16_9_1280x720/public/images/hero_media_image/2017-06/de6f732d8950b74b550d885beab53c37.jpeg?itok=V487sCW7",
+                "description":"Boston is best known for its famous baked beans, Fenway Park, The Boston Marathon, and of course for the bar from Cheers, but dig a little deeper below the surface and you'll find a surprising wealth of things that make Boston one of the best cities in America—and the world."
         },
         {
                 "name":"Sao Paulo",
                 "country":"Brasil",
-                "src":"https://www.cooperatingvolunteers.com/wp-content/uploads/2017/05/estatua-de-jesucristo-en-brasil-brazil-jesus-christ-statue-1920x1200-wallpaper.jpg"
+                "src":"https://www.cooperatingvolunteers.com/wp-content/uploads/2017/05/estatua-de-jesucristo-en-brasil-brazil-jesus-christ-statue-1920x1200-wallpaper.jpg",
+                "description":"São Paulo is the largest city in the southern hemisphere and one of the most populous in the world, São Paulo is the most cosmopolitan center of the country. Capital of culture, gastronomy, entertainment, especially at night, economy, fashion and much more."
         }
         
 ]);

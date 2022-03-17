@@ -23,12 +23,6 @@ const itinerariesActions = {
         }
     },
 
-    filterItineraries: (itineraries, value)=>{
-        return async(dispatch,getState)=>{
-            dispatch({type:'filter_it', payload:{itineraries, value}})
-        }
-    },
-
     setItinerary: (person_name, photo, price, duration, likes, hashtags)=>{
         return async(dispatch,getState)=>{
             const respuesta = await axios.post('http://localhost:4000/api/itineraries/',{person_name, photo, price, duration, likes, hashtags})

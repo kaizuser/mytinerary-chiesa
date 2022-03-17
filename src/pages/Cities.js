@@ -1,5 +1,5 @@
 import React from 'react'
-import ApiData from './ApiData'
+import ApiData from '../components/ApiData'
 
 export default function Cities(){
 

@@ -9,7 +9,7 @@ export default function Hero(){
 
 				<h2 className='e2 eslogan-text mb-3'>Your perfect trip design</h2>
 
-				<h2 className='e3 eslogan-text mb-3'>By insider who know their cities!</h2>
+				<h2 className='e3 eslogan-text mb-3'>By insiders who know their cities!</h2>
 
 			</div>
 

@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom";
 import { connect } from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions.js'
+import itinerariesActions from '../redux/actions/itinerariesActions.js'
 import Filter from './Filter.js'
 
 class ApiData extends React.Component{
@@ -10,8 +11,9 @@ class ApiData extends React.Component{
 	}
 
 	componentDidMount(){
-		if (this.props.cities.length < 1){
+		if (this.props.itineraries.length < 1){
 			this.props.fetchCities()
+			this.props.fetchItineraries()
 		}
 	}
 
@@ -58,13 +60,16 @@ class ApiData extends React.Component{
 
 const mapDispatchToProps = {
 	fetchCities:citiesActions.fetchCities,
-	filterCities:citiesActions.filterCities,
+	fetchItineraries:itinerariesActions.fetchItineraries,
+	filterCities:citiesActions.filterCities
 }
 
 const mapStateToProps = (state) => {
 	return {
 		cities:state.citiesReducer.cities,
 		auxiliar:state.citiesReducer.auxiliar,
+		itineraries:state.itinerariesReducer.itineraries,
+		auxiliar_it:state.itinerariesReducer.auxiliar_it
 	}
 }
 

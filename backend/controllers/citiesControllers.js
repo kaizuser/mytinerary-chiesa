@@ -40,12 +40,13 @@ const ciudadesControllers = {
 	},
 
 	set_city: async(req, res) => {
-		const {name, country, src} = req.body.dataInput
+		const {name, country, src, description} = req.body.dataInput
 
 		new Cities({
 			name:name,
 			country:country,
 			src:src,
+			description:description
 		}).save()
 
 		.then((answer) => res.json({answer}))

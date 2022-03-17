@@ -1,6 +1,7 @@
 import React from 'react';
 import cities from '../data/cities.js'
 import Carousel from 'react-bootstrap/Carousel';
+import {Link} from 'react-router-dom'
 
 export default class CarouselApp extends React.Component{
 
@@ -17,9 +18,12 @@ export default class CarouselApp extends React.Component{
 					slide.map(city => 
 					<div className='m-3' key={city.id}>
 					<img src={city.src} className='carousel-img object-cover'/>
-					<a className='h-12 flex justify-center items-center bg-blue-600 hover:bg-white transition duration-300 ease-in cursor-pointer'>
+
+					<Link to={`/cities/details/${city.id}`}>
+					<span className='h-12 flex justify-center items-center bg-blue-600 hover:bg-white transition duration-300 ease-in cursor-pointer'>
 						<h3>{city.name}</h3>
-					</a>
+					</span>
+					</Link>
 					</div>
 
 					)
