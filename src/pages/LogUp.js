@@ -38,7 +38,7 @@ function LogUp(props) {
 		  <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
 		    <input type="hidden" name="remember" defaultValue="true" />
 		    <div className="rounded-md shadow-sm -space-y-px">
-		      <div>
+		      <div className='m-2'>
 		        <label htmlFor='full-name' className='sr-only'>
 			  Full name
 			</label>
@@ -51,14 +51,14 @@ function LogUp(props) {
 			  placeholder='Full name'
 			/>
 		      </div>
-		      <div>
+		      <div className='m-2'>
 			<label htmlFor='select-country' className='sr-only'></label>
 			<select
 			  id='select-country'
 			  name='country'
 			  onChange={event => setSelectPaises(event.target.value)}
 			  required
-			  className='block w-full px-3 py-2'
+			  className='block w-full px-2 py-2 bg-white text-gray-500'
 			>
 			{
 				paises.map(pais => 
@@ -69,7 +69,7 @@ function LogUp(props) {
 			</select>
 
 		      </div>
-		      <div>
+		      <div className='m-2'>
 			<label htmlFor="email-address" className="sr-only">
 			  Email address
 			</label>
@@ -84,7 +84,7 @@ function LogUp(props) {
 			  onChange={event => setEmail(event.target.value)}
 			/>
 		      </div>
-		      <div>
+		      <div className='m-2'>
 			<label htmlFor="password" className="sr-only">
 			  Password
 			</label>

@@ -1,7 +1,7 @@
 import {React, useState} from 'react'
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import userActions from '../redux/actions/usersActions.js';
-import { Link as LinkRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import Snack from '../components/Snack.js'
 import GoogleSignIn from '../components/GoogleSignIn.js'
@@ -32,7 +32,7 @@ function SignIn(props) {
 		  </div>
 		  <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
 		    <input type="hidden" name="remember" defaultValue="true" />
-		    <div className="rounded-md shadow-sm -space-y-px">
+		    <div className="rounded-md shadow-sm -space-y-px align-middle">
 		      <div>
 			<label htmlFor="email-address" className="sr-only">
 			  Email address
@@ -76,6 +76,11 @@ function SignIn(props) {
 			Sign in
 		      </button>
 		    </div>
+		    <Link to={'/logUp'}>
+			    <div className='flex justify-center items-center w-full'>
+			    <h1 className='mt-2'>You don't have an account? Log in here</h1>
+			    </div>
+		    </Link>
 		    <GoogleSignIn/>
 		  </form>
 		</div>

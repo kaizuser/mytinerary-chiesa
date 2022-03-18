@@ -52,11 +52,4 @@ const mapDispatchToProps = {
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        message: state.usersReducer.message,
-	snackbar: state.usersReducer.snackbar
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
