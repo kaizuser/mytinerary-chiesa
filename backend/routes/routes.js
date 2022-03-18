@@ -8,7 +8,7 @@ const usersControllers = require('../controllers/usersControllers.js')
 
 const {get_cities, get_city, set_city, delete_city, modify_city} = citiesControllers
 const {get_itineraries, get_itinerary, set_itinerary, delete_itinerary, modify_itinerary} = itinerariesControllers
-const {signUpUsers, signInUser, signOutUser,verifyEmail,verificarToken}= usersControllers
+const {signUpUsers, signInUser, signOutUser,verifyEmail,verificarToken, getUsers}= usersControllers
 
 
 //Cities
@@ -32,10 +32,10 @@ Router.route('/itineraries/:id')
 .get(get_itinerary)
 
 //Users
-Router.route('auth/signUp')
+Router.route('/auth/signUp')
 .post(validator, signUpUsers)
 
-Router.route('auth/signIn')
+Router.route('/auth/signIn')
 .post(signInUser)
 
 Router.route('/auth/signOut')

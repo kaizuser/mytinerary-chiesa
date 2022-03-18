@@ -1,15 +1,33 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import {withRouter} from './utils/withRouter.js'
-import React from 'react'
-import Footer from './components/Footer'
-import Header from './components/Header'
+import {React, useEffect} from 'react'
+
 import Cities from './pages/Cities'
 import Home from './pages/Home'
+import SignIn from './pages/SignIn.js'
+import LogUp from './pages/LogUp.js'
+
+import Footer from './components/Footer'
+import Header from './components/Header'
 import CardDetails from './components/CardDetails'
+
+import usersActions from './redux/actions/usersActions';
+import { connect } from 'react-redux';
+
+
 
 const Element = withRouter(CardDetails)
 
-export default function App(){
+function App(props){
+
+	useEffect(() => {
+	 
+	if(localStorage.getItem('token')!== null){
+	        const token = localStorage.getItem("token")
+		props.VerificarToken(token)
+	}
+	},[])
+
 	return (
 		<>
 		<BrowserRouter>
@@ -18,6 +36,9 @@ export default function App(){
 				<Route path='/' element={<Home/>}/>
 				<Route path='/home' element={<Home/>}/>
 				<Route path='/cities' element={<Cities/>}/>
+				<Route path='/signIn' element={<SignIn/>}/>
+				<Route path='/logUp' element={<LogUp/>} />
+
 				<Route path='/cities/details/:id' element={<Element/>}/>
 			</Routes>
 			<Footer/>
@@ -25,3 +46,17 @@ export default function App(){
 		</>
 	  );
 }
+
+const mapDispatchToProps = {
+	VerificarToken: usersActions.VerificarToken,
+
+}
+
+const mapStateToProps = (state) => {
+    return {
+        message: state.usersReducer.message,
+	snackbar: state.usersReducer.snackbar
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

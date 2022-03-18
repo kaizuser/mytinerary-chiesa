@@ -3,6 +3,7 @@ const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')        
 const nodemailer = require('nodemailer') 
 const jwt = require('jsonwebtoken')
+require('dotenv').config();
 
 const sendEmail = async (email, uniqueString) => { 
 
@@ -11,13 +12,12 @@ const sendEmail = async (email, uniqueString) => {
         port: 465,
         secure: true,
         auth: {
-            user: "useremailverifyMindHub@gmail.com",    
-            pass: "mindhub2021"                        
+            user: "thiagochiesa444@gmail.com",    
+            pass: "flamigera123"                        
         }                                            
     })
 
-    // EN ESTA SECCION LOS PARAMETROS DEL MAIL 
-    let sender = "useremailverifyMindHub@gmail.com"  
+    let sender = "thiagochiesa444@gmail.com"  
     let mailOptions = { 
         from: sender,   
         to: email,       
@@ -29,6 +29,7 @@ const sendEmail = async (email, uniqueString) => {
         `
     
     };
+
     await transporter.sendMail(mailOptions, function (error, response) {
         if (error) { console.log(error) }
         else {
@@ -42,6 +43,24 @@ const sendEmail = async (email, uniqueString) => {
 
 
 const usersControllers = {
+
+    getUsers: async (req, res) => {
+	let users
+	let error = null
+	
+	try{
+		users = await User.find()
+	}
+	catch(err){
+		error = err
+		console.log(error)
+	}
+	res.json({
+		response:error ? 'ERROR' : {users},
+		success:error ? false : true,
+		error:error
+	})
+    },
 
     verifyEmail: async (req, res) => {
 
@@ -135,14 +154,13 @@ const usersControllers = {
         }
     },
     signInUser: async (req, res) => {
-
         const { email, password,  from } = req.body.logedUser
 
         try {
             const usuarioExiste = await User.findOne({ email })
             const indexpass = usuarioExiste.from.indexOf(from)
 
-            if (!usuarioExiste) {// PRIMERO VERIFICA QUE EL USUARIO EXISTA
+            if (!usuarioExiste) {
                 res.json({ success: false, message: "Tu usuario no ha sido registrado realiza signUp" })
 
             } else {
@@ -161,7 +179,7 @@ const usersControllers = {
 
                         await usuarioExiste.save()
 
-                        const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
+                        const token = jwt.sign({...userData}, process.env.MONGO_URI,{expiresIn:  60* 60*24 })
                         
 
                         res.json({ success: true,  
@@ -190,7 +208,7 @@ const usersControllers = {
                             from:from
                             }
 
-                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn:  60* 60*24 })
+                            const token = jwt.sign({...userData}, process.env.MONGO_URI, {expiresIn:  60* 60*24 })
                         res.json({ success: true, 
                             from: from, 
                             response: {token, userData }, 
@@ -205,7 +223,7 @@ const usersControllers = {
                     } else{
                         res.json({ success: false, 
                             from: from, 
-                            message:"No has verificado tu email, por favor verifica ti casilla de emails para completar tu signUp"
+                            message:"No has verificado tu email, por favor verifica tu casilla de emails para completar tu signUp"
                           }) 
                     }
 
@@ -214,7 +232,7 @@ const usersControllers = {
 
         } catch (error) {
             console.log(error);
-            res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+            res.json({ success: false, message: "Algo ha salido mal intentalo en unos minutos" })
         }
     },
 
