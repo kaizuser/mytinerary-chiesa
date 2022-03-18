@@ -20,12 +20,12 @@ const Element = withRouter(CardDetails)
 
 function App(props){
 
-	useEffect(() => {
 	 
-	if(localStorage.getItem('token')!== null){
-	        const token = localStorage.getItem("token")
-		props.VerificarToken(token)
-	}
+	useEffect(() => {
+	    if(localStorage.getItem('token')!== null){
+	      const token = localStorage.getItem("token")
+	      props.VerificarToken(token)
+	    }
 	},[])
 
 	return (

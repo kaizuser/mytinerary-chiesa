@@ -17,6 +17,10 @@ import {
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import {Link} from 'react-router-dom'
+import {React, useEffect, useState} from 'react'
+import usersActions from '../redux/actions/usersActions.js'
+import {connect} from 'react-redux'
+
 
 const home = [
   {
@@ -46,7 +50,23 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+function Header (props){
+
+	let [active, setActive] = useState(false)
+
+	useEffect(() => {
+	    if(localStorage.getItem('token')!== null){
+	      let token = localStorage.getItem("token")
+	      let check = props.VerificarToken(token)
+	      setActive(check)
+	    }
+	},[props])
+
+	const handleSignOut = () => {
+		props.signOut(active)
+		setActive(false)
+	} 
+
   return (
   <Popover className="relative bg-white z-10">
 	  <div className="sm:px-6 hover:bg-blue-100 transition duration-300 ease-in">
@@ -138,7 +158,7 @@ export default function Example() {
                   </Transition>
             </Popover>
           </Popover.Group>
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+	 {active==false ? <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 	    <Link to={'/signIn'}>
             <span href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
               Sign in
@@ -156,7 +176,16 @@ export default function Example() {
 		  <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
 		  <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
 		</svg>
-          </div>
+          </div> 
+	  : 
+	   <span
+              href="#"
+              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-500 hover:bg-red-400 cursor-pointer"
+	      onClick={handleSignOut}
+            >
+              Sign Out
+	 </span>
+	 }
         </div>
       </div>
 
@@ -215,7 +244,9 @@ export default function Example() {
 		    </Link>
 		  ))}
 		  {sign_up.map((item) => (
-		    <a
+
+	            <Link to={'/signIn'} key={item}>
+		    <div
 		      key={item.name}
 
 		      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer"
@@ -225,16 +256,18 @@ export default function Example() {
 			  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
 			</svg>
 		      <div className="ml-4">
-			<Link to={'/signIn'}>
 			<p className="text-base font-medium text-gray-900">{item.name}</p>
 			<p className="mt-1 text-sm text-gray-500">{item.description}</p>
-			</Link>
 		      </div>
-		    </a>
+		    </div>
+
+		    </Link>
 
 		  ))}
 		  {log_in.map((item) => (
-		    <a
+
+		    <Link to={'/logUp'} key={item}>
+		    <div
 		      key={item.name}
 
 		      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer"
@@ -243,13 +276,14 @@ export default function Example() {
 			  <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
 			  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
 			</svg>
+
 		      <div className="ml-4">
-			<Link to={'/logUp'}>
 			<p className="text-base font-medium text-gray-900">{item.name}</p>
 			<p className="mt-1 text-sm text-gray-500">{item.description}</p>
-			</Link>
 		      </div>
-		    </a>
+		    </div>
+
+		    </Link>
 		  ))}
 		</nav>
               </div>
@@ -260,4 +294,17 @@ export default function Example() {
     </Popover>
   )
 }
- 
+const mapDispatchToProps = {
+	VerificarToken: usersActions.VerificarToken,
+	signOut: usersActions.SignOutUser
+}
+
+const mapStateToProps = (state) => {
+  return {
+      snackbar: state.usersReducer.snackbar,
+      user: state.usersReducer.user
+      
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -33,7 +33,7 @@ function SignIn(props) {
 		  <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
 		    <input type="hidden" name="remember" defaultValue="true" />
 		    <div className="rounded-md shadow-sm -space-y-px align-middle">
-		      <div>
+		      <div className='m-2'>
 			<label htmlFor="email-address" className="sr-only">
 			  Email address
 			</label>
@@ -48,7 +48,7 @@ function SignIn(props) {
 			  onChange={event => setEmail(event.target.value)}
 			/>
 		      </div>
-		      <div>
+		      <div className='m-2'>
 			<label htmlFor="password" className="sr-only">
 			  Password
 			</label>

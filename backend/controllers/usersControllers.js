@@ -237,10 +237,7 @@ const usersControllers = {
     },
 
     signOutUser: async (req, res) => {
-       
-        const email = req.body.closeuser
-        const user = await User.findOne({ email })
-        await user.save()
+	    return
     },
 
     verificarToken:(req, res) => {
@@ -248,9 +245,12 @@ const usersControllers = {
         res.json({success:true,
                   response:{id:req.user.id, fullName:req.user.fullName,email:req.user.email, from:"token"},
                   message:"Bienvenido nuevamente "+req.user.fullName}) 
+	return true
         }else{
             res.json({success:false,
             message:"Por favor realiza nuevamente signIn"}) 
+	    
+	    return false
         }
     }
 

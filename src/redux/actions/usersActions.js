@@ -52,7 +52,7 @@ const userActions = {
         return async (dispatch, getState) => {
             const user = axios.post('http://localhost:4000/api/auth/signOut', { closeuser })
             localStorage.removeItem('token')
-            dispatch({ type: 'user', payload: null });
+            dispatch({ type: 'user', payload: null});
         }
     },
     VerificarToken: (token) => {
@@ -63,7 +63,7 @@ const userActions = {
                     'Authorization': 'Bearer ' + token
                 }
             })
-            
+	    
             if (user.data.success) {
                 dispatch({ type: 'user', payload: user.data.response });
                 dispatch({
@@ -74,8 +74,11 @@ const userActions = {
                         success: user.data.success
                     }
                 });
+
+		return user.data.response
             } else {
                 localStorage.removeItem('token')
+		return false
             }
 
         }
