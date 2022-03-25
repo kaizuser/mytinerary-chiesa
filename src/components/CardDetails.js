@@ -1,14 +1,24 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import itinerariesActions from '../redux/actions/itinerariesActions.js'
+import commentsActions from '../redux/actions/commentsActions.js'
 
 class CardDetails extends React.Component{
 	constructor(props){
 		super(props)
 	}
 
-	manageLikes = async (event) => {
-		await this.props.likeDislike(event)
+	manageLikes = async (item) => {
+		await this.props.likeDislike(item)
+	}
+
+	chargeComment = async (item, event) => {
+		const commentData = {
+			tinerary:item,
+			comment:event.target.value
+		}
+
+		await this.props.addComment(commentData)
 	}
 
 	state = {city:{}, itineraries:[], activities:[], user:{}}
@@ -119,8 +129,8 @@ class CardDetails extends React.Component{
 						</div>
 					</div>
 
-					<div id='expand-btn' className='w-24 h-24 flex bg-gray-50 justify-center items-center rounded-full cursor-pointer hover:bg-blue-200 transition duration-300 ease-in'>
-						<h1 className='un_1'>View More</h1>
+					<div id='expand-btn' className='w-24 h-24 flex bg-gray-50 justify-center items-center rounded-full cursor-pointer hover:bg-blue-200 transition duration-300 ease-in text-center'>
+						<h1 className='un_1 text-center'>View More</h1>
 					</div>
 				</div>
 
@@ -156,7 +166,10 @@ class CardDetails extends React.Component{
 }
 
 const mapDispatchToProps = {
-	likeDislike:itinerariesActions.likeDislike
+	likeDislike:itinerariesActions.likeDislike,
+	addComment:commentsActions.addComment,
+	modifyComment:commentsActions.modifyComment,
+	deleteComment:commentsActions.deleteComment
 } 
 
 const mapStateToProps = (state) => {

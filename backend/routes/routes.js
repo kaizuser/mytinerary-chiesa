@@ -8,7 +8,7 @@ const usersControllers = require('../controllers/usersControllers.js')
 const activitiesControllers = require('../controllers/activitiesControllers.js')
 
 const {get_cities, get_city, set_city, delete_city, modify_city} = citiesControllers
-const {get_itineraries, get_itinerary, set_itinerary, delete_itinerary, modify_itinerary, like_dislike} = itinerariesControllers
+const {get_itineraries, get_itinerary, set_itinerary, delete_itinerary, modify_itinerary, like_dislike, addComment, modifyComment, deleteComment} = itinerariesControllers
 const {signUpUsers, signInUser, signOutUser,verifyEmail,verificarToken, getUsers}= usersControllers
 const {get_activities, get_activity, set_activity, delete_activity, modify_activity} = activitiesControllers
 
@@ -35,6 +35,13 @@ Router.route('/itineraries/:id')
 
 Router.route('/itineraries/likeDislike/:id')
 .put(passport.authenticate("jwt", {session: false}),like_dislike)
+
+Router.route('/itineraries/comments')
+.post(passport.authenticate('jwt',{ session: false }),addComment)
+.put(passport.authenticate('jwt',{ session: false }),modifyComment)
+
+Router.route('/itineraries/comments/:id')
+.post(passport.authenticate('jwt',{ session: false }),deleteComment)
 
 //Activities
 Router.route('/activities')

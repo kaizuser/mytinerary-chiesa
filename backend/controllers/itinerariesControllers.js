@@ -40,7 +40,7 @@ const itinerariesControllers = {
 	},
 
 	set_itinerary: async(req, res) => {
-		const {name, city, person_name, photo, price, duration, likes, hashtags,} = req.body.dataInput
+		const {name, city, person_name, photo, price, duration, likes, hashtags, comments} = req.body.dataInput
 
 		new Itineraries({
 			name:name,
@@ -51,6 +51,7 @@ const itinerariesControllers = {
 			duration:duration,
 			likes:likes,
 			hashtags:hashtags,
+			comments:comments
 		}).save()
 
 		.then((answer) => res.json({answer}))
@@ -89,6 +90,51 @@ const itinerariesControllers = {
 		}
 		})
 		.catch((error) => res.json({success:false, response:error}))
+	},
+
+	addComment: async (req, res) => {
+		const {tinerary,comment} = req.body.comment
+		const user = req.user.id
+		try {
+		    const nuevoComment = await Itineraries.findOneAndUpdate({_id:tinerary}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate("autor", {fullName:1}).populate("comments.userID", {fullName:1})
+		    res.json({ success: true, response:{nuevoComment}, message:"gracias por dejarnos tu comentario" })
+
+		}
+		catch (error) {
+		    console.log(error)
+		    res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+		}
+
+	},
+	modifyComment: async (req, res) => {
+		const {commentID,comment} = req.body.comment
+		const user = req.user.id
+		try {
+		    const newComment = await Itineraries.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment": comment}}, {new: true})
+		    console.log(newComment)
+		    res.json({ success: true, response:{newComment}, message:"tu comentario a sido modificado" })
+
+		}
+		catch (error) {
+		    console.log(error)
+		    res.json({ success: true, message: "Algo a salido mal intentalo en unos minutos" })
+		}
+
+	},
+	deleteComment: async (req, res) => {
+		const id = req.params.id
+		const user = req.user.id
+		try {
+		    const deleteComment = await Itineraries.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
+		  console.log(deleteComment)
+		    res.json({ success: true, response:{deleteComment}, message: "has eliminado el comentario" })
+
+		}
+		catch (error) {
+		    console.log(error)
+		    res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+		}
+
 	},
 
 }
