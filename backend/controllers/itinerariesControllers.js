@@ -40,9 +40,10 @@ const itinerariesControllers = {
 	},
 
 	set_itinerary: async(req, res) => {
-		const {city, person_name, photo, price, duration, likes, hashtags,} = req.body.dataInput
+		const {name, city, person_name, photo, price, duration, likes, hashtags,} = req.body.dataInput
 
 		new Itineraries({
+			name:name,
 			city:city,
 			person_name:person_name,
 			photo:photo,

@@ -13,6 +13,7 @@ class CardDetails extends React.Component{
 	}
 
 	render(){
+		console.log(this.props)
 		if (this.state.itineraries.length == 0){
 			return(
 				<>
@@ -60,11 +61,13 @@ class CardDetails extends React.Component{
 				<div className='itinerary-container m-5 bg-blue-500 w-3/5 h-80 rounded-full flex justify-around items-center' key={item._id}>
 					<img src={item.photo} className='h-28 w-28 rounded-full object-cover'/>
 					<div className='flex justify-around items-center flex-col h-full text-white font-bold'>
-						<div>
+						<div className='h-12'>
 							<h1>Duration: {item.duration} HS</h1>
 						</div>
 
-						<div className='flex justify-center items-center flex-wrap'>
+						<h1>{item.name}</h1>
+
+						<div className='flex justify-center items-center flex-wrap h-12'>
 							{item.hashtags.map(hashtag => 
 							<h1 className='mx-1 my-5' key={hashtag}>#{hashtag}</h1>
 							)}
@@ -72,7 +75,7 @@ class CardDetails extends React.Component{
 						</div>
 					</div>
 
-					<div id='expand-btn' className='w-40 h-20 bg-white flex justify-center items-center rounded-full cursor-pointer hover:bg-red transition duration-300 ease-in'>
+					<div id='expand-btn' className='w-24 h-24 bg-white flex justify-center items-center rounded-full cursor-pointer hover:bg-red transition duration-300 ease-in'>
 						<h1 className='un_1'>View More</h1>
 						<h1 className='un_2 hidden'>Under construction</h1>
 					</div>
@@ -91,9 +94,8 @@ class CardDetails extends React.Component{
 const mapStateToProps = (state) => {
 	return {
 		cities:state.citiesReducer.cities,
-		auxiliar:state.citiesReducer.auxiliar,
 		itineraries:state.itinerariesReducer.itineraries,
-		auxiliar_it:state.itinerariesReducer.auxiliar_it
+		activities:state.activitiesReducer.activities,
 	}
 }
 

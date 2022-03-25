@@ -5,10 +5,12 @@ const passport = require('../config/passports')
 const citiesControllers = require('../controllers/citiesControllers')
 const itinerariesControllers = require('../controllers/itinerariesControllers.js')
 const usersControllers = require('../controllers/usersControllers.js')
+const activitiesControllers = require('../controllers/activitiesControllers.js')
 
 const {get_cities, get_city, set_city, delete_city, modify_city} = citiesControllers
 const {get_itineraries, get_itinerary, set_itinerary, delete_itinerary, modify_itinerary} = itinerariesControllers
 const {signUpUsers, signInUser, signOutUser,verifyEmail,verificarToken, getUsers}= usersControllers
+const {get_activities, get_activity, set_activity, delete_activity, modify_activity} = activitiesControllers
 
 
 //Cities
@@ -30,6 +32,17 @@ Router.route('/itineraries/:id')
 .delete(delete_itinerary)
 .put(modify_itinerary)
 .get(get_itinerary)
+
+//Activities
+Router.route('/activities')
+.get(get_activities)
+.post(set_activity)
+
+Router.route('/activities/:id')
+.delete(delete_activity)
+.put(modify_activity)
+.get(get_activity)
+
 
 //Users
 Router.route('/auth/signUp')
