@@ -155,7 +155,6 @@ const usersControllers = {
     },
     signInUser: async (req, res) => {
         const { email, password,  from } = req.body.logedUser
-	console.log(req.body.logedUser)
 
         try {
             const usuarioExiste = await User.findOne({ email })

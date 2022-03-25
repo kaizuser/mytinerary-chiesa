@@ -15,7 +15,7 @@ db.itineraries.insertMany([
           "photo":"https://cdn.pixabay.com/photo/2014/07/09/10/04/man-388104_960_720.jpg",
           "price":3,
           "duration":48,
-          "likes":0,
+          "likes":[],
           "hashtags":["trip", "enjoy", "places"],
           "comments":""
         },
@@ -26,7 +26,7 @@ db.itineraries.insertMany([
           "photo":"https://st.depositphotos.com/1269204/1219/i/600/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg",
           "price":5,
           "duration":72,
-          "likes":0,
+          "likes":[],
           "hashtags":["trip", "enjoy", "places"],
           "comments":""
         },
@@ -37,7 +37,7 @@ db.itineraries.insertMany([
           "photo":"https://thumbs.dreamstime.com/b/happy-person-portrait-smiling-woman-tanned-skin-curly-hair-happy-person-portrait-smiling-young-friendly-woman-197501184.jpg",
           "price":2,
           "duration":24,
-          "likes":0,
+          "likes":[],
           "hashtags":["trip", "enjoy", "places"],
           "comments":""
         },
@@ -48,7 +48,7 @@ db.itineraries.insertMany([
           "photo":"https://img.freepik.com/free-photo/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university_273609-1270.jpg?size=626&ext=jpg&ga=GA1.2.1352876164.1637971200",
           "price":3,
           "duration":48,
-          "likes":0,
+          "likes":[],
           "hashtags":["trip", "enjoy","places"],
           "comments":""
         },
