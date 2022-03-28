@@ -124,6 +124,8 @@ const itinerariesControllers = {
 	deleteComment: async (req, res) => {
 		const id = req.params.id
 		const user = req.user.id
+
+		console.log(id, user)
 		try {
 		    const deleteComment = await Itineraries.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
 		  console.log(deleteComment)

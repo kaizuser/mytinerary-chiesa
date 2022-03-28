@@ -27,6 +27,11 @@ class CardDetails extends React.Component{
 		this.props.fetchItineraries()
 	}
 
+	deleteComment = async (id) => {
+		await this.props.deleteComment(id)
+		this.props.fetchItineraries()
+	}
+
 	componentDidMount(){
 		this.setState({city:this.props.cities.find(city => city._id === this.props.params.id), itineraries:this.props.itineraries.filter(itinerary => itinerary.city === this.props.params.id), activities:this.props.activities, user:this.props.user, users:this.props.users})
 	}
@@ -167,15 +172,27 @@ class CardDetails extends React.Component{
 						</div>
 
 						{item.comments.map((comment) => 
-						<div className='flex justify-center items-center text-center flex-col'>
+						<div className='flex justify-center items-center text-center flex-col' key={comment._id}>
+							<div className='flex justify-center items-center space-between w-10/12'>
+
+							<div onClick={() => this.deleteComment(comment._id)}>
+							{this.props.user && this.props.user.id == comment.userID ? 
+							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="hover:text-gray-50 transition duration-300 ease-in cursor-pointer" viewBox="0 0 16 16">
+							<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+							<path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+							</svg>
+							:
+							<div></div>}
+							</div>
 							{this.state.users.users.map((user) => {
 								if(comment.userID == user._id){
 									return(
-										<h1>{user.fullName}</h1>
+										<h1 className=''>{user.fullName}</h1>
 									)
 								}
 							})
 							}
+							</div>
 							<h1 className='w-3/5 h-8 bg-blue-400 m-2 rounded-full'>{comment.comment}</h1>
 						</div>
 						)}
