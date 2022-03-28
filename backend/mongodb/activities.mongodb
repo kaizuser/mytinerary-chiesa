@@ -7,62 +7,62 @@ db.activities.drop()
 db.activities.insertMany(
   [
     {
-      'itinerary':'623d7210d47c637e081fcc6f',
+      'itinerary':'624101033369b308f480c616',
       'name':'Castles Of Ludwig II',
       'photo':'https://cdn.getyourguide.com/img/tour/a638081479f3d7d0.jpeg/98.jpg',
     },
     {
-      'itinerary':'623d7210d47c637e081fcc6f',
+      'itinerary':'624101033369b308f480c616',
       'name':'Visit Neuschwanstein',
       'photo':'https://cdn.getyourguide.com/img/tour/5a5b42dc9e469618.jpeg/145.jpg'
     },
     {
-      'itinerary':'623d7210d47c637e081fcc6f',
+      'itinerary':'624101033369b308f480c616',
       'name':'Intimate Linderhof',
       'photo':'https://cdn.getyourguide.com/img/tour/6dfa2e1c90cf1531.jpeg/145.jpg'
     },
     {
-      'itinerary':'623d7210d47c637e081fcc70',
+      'itinerary':'624101033369b308f480c617',
       'name':'Cathedral',
       'photo':'https://cdn.getyourguide.com/img/tour/5bc43ccd0caae.jpeg/145.jpg'
     },
     {
-      'itinerary':'623d7210d47c637e081fcc70',
+      'itinerary':'624101033369b308f480c617',
       'name':'Frauenkirche',
       'photo':'https://cdn.getyourguide.com/img/tour/5bc43d33a9016.jpeg/145.jpg'
     },    
     {
-      'itinerary':'623d7210d47c637e081fcc70',
+      'itinerary':'624101033369b308f480c617',
       'name':'Staatliches Hofbräuhaus',
       'photo':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1fWnPvUtPBxlzVpIoSR3cayY577whDq1MtA&usqp=CAU'
     },
     {
-      'itinerary':'623d7210d47c637e081fcc71',
+      'itinerary':'624101033369b308f480c618',
       'name':'Ancient Rituals',
       'photo':'https://japan-forward.com/wp-content/uploads/2019/04/Japan-Travel-Matsuri-004-1024x683.jpg'
     },
     {
-      'itinerary':'623d7210d47c637e081fcc71',
+      'itinerary':'624101033369b308f480c618',
       'name':'Japanese Culture',
       'photo':'https://chavellenge.com/wp-content/uploads/2020/10/japanese-culture-facts-1200x900.jpg'
     },
     {
-      'itinerary':'623d7210d47c637e081fcc71',
+      'itinerary':'624101033369b308f480c618',
       'name':'Sake Barrels',
       'photo':'https://media.istockphoto.com/photos/sake-barrels-in-meiji-jingu-shrine-harajuku-tokyo-japan-picture-id629355446'
     },
     {
-      'itinerary':'623d7210d47c637e081fcc72',
+      'itinerary':'624101033369b308f480c619',
       'name':'Nature',
       'photo':'https://s1.1zoom.me/b5050/337/Japan_Tokyo_Parks_Pond_Flowering_trees_Yoyogi_Park_547622_1366x768.jpg'
     },
     {
-      'itinerary':'623d7210d47c637e081fcc72',
+      'itinerary':'624101033369b308f480c619',
       'name':'Harajuku Station',
       'photo':'https://media.timeout.com/images/105558776/image.jpg'
     },
     {
-      'itinerary':'623d7210d47c637e081fcc72',
+      'itinerary':'624101033369b308f480c619',
       'name':'Nice Atmosphere',
       'photo':'https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2015/04/8090526455_1e66c3d307_k.jpg'
     },

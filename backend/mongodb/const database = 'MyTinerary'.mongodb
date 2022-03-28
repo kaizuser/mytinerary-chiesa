@@ -17,7 +17,7 @@ db.itineraries.insertMany([
           "duration":48,
           "likes":[],
           "hashtags":["trip", "enjoy", "places"],
-          "comments":""
+          "comments":[]
         },
         {
           "name":"Neuschwanstein & Linderhof Castle",
@@ -28,7 +28,7 @@ db.itineraries.insertMany([
           "duration":72,
           "likes":[],
           "hashtags":["trip", "enjoy", "places"],
-          "comments":""
+          "comments":[]
         },
         {
           "name":"Meiji Sanctuary",
@@ -39,7 +39,7 @@ db.itineraries.insertMany([
           "duration":24,
           "likes":[],
           "hashtags":["trip", "enjoy", "places"],
-          "comments":""
+          "comments":[]
         },
         {
           "name":"Yoyogi Park",
@@ -50,7 +50,7 @@ db.itineraries.insertMany([
           "duration":48,
           "likes":[],
           "hashtags":["trip", "enjoy","places"],
-          "comments":""
+          "comments":[]
         },
 ]);
 

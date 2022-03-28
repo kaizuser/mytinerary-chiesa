@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions.js'
 import itinerariesActions from '../redux/actions/itinerariesActions.js'
 import activitiesActions from '../redux/actions/activitiesActions.js'
+import usersActions from '../redux/actions/usersActions.js'
 import Filter from './Filter.js'
 
 class ApiData extends React.Component{
@@ -16,6 +17,7 @@ class ApiData extends React.Component{
 			this.props.fetchCities()
 			this.props.fetchActivities()
 			this.props.fetchItineraries()
+			this.props.fetchUsers()
 		}
 	}
 
@@ -65,6 +67,7 @@ const mapDispatchToProps = {
 	fetchItineraries:itinerariesActions.fetchItineraries,
 	fetchActivities:activitiesActions.fetchActivities,
 	filterCities:citiesActions.filterCities,
+	fetchUsers:usersActions.fetchUsers
 }
 
 const mapStateToProps = (state) => {

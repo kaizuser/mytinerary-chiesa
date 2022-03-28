@@ -3,6 +3,7 @@ const initialState = {
     snackbar:{view: false,
         message: '',
         success:false},
+    users:null,
     
 }
 
@@ -20,6 +21,12 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 snackbar: action.payload,   
             }
+
+	case 'users':
+		    return{
+			    ...state,
+			    users:action.payload
+		    }
 
         default:
             return state

@@ -54,6 +54,9 @@ Router.route('/activities/:id')
 .get(get_activity)
 
 //Users
+Router.route('/auth/getUsers')
+.get(getUsers)
+
 Router.route('/auth/signUp')
 .post(validator, signUpUsers)
 

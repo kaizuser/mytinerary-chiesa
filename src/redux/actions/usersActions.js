@@ -6,12 +6,8 @@ const userActions = {
        return async(dispatch, getState) => {
             const res = await axios.get('http://localhost:4000/api/auth/getUsers')
             dispatch({
-                type: 'message',
-                payload: {
-                    view: true,
-                    message: res.data.message,
-                    success: res.data.success
-                }
+                type: 'users',
+                payload: res.data.response
             });
        }
     },
