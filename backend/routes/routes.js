@@ -24,6 +24,13 @@ Router.route('/cities/:id')
 .get(get_city)
 
 //Itineraries
+Router.route('/itineraries/comments')
+.post(passport.authenticate('jwt',{ session: false }),addComment)
+.put(passport.authenticate('jwt',{ session: false }),modifyComment)
+
+Router.route('/itineraries/comments/:id')
+.post(passport.authenticate('jwt',{ session: false }),deleteComment)
+
 Router.route('/itineraries')
 .get(get_itineraries)
 .post(set_itinerary)
@@ -35,13 +42,6 @@ Router.route('/itineraries/:id')
 
 Router.route('/itineraries/likeDislike/:id')
 .put(passport.authenticate("jwt", {session: false}),like_dislike)
-
-Router.route('/itineraries/comments')
-.post(passport.authenticate('jwt',{ session: false }),addComment)
-.put(passport.authenticate('jwt',{ session: false }),modifyComment)
-
-Router.route('/itineraries/comments/:id')
-.post(passport.authenticate('jwt',{ session: false }),deleteComment)
 
 //Activities
 Router.route('/activities')

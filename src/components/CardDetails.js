@@ -10,7 +10,7 @@ class CardDetails extends React.Component{
 		super(props)
 	}
 
-	state = {city:{}, itineraries:[], activities:[], user:{}, addComment:'', users:{}}
+	state = {city:{}, itineraries:[], activities:[], user:{}, addComment:'', modComment:'', users:{}}
 
 	manageLikes = async (item) => {
 		await this.props.likeDislike(item)
@@ -29,6 +29,15 @@ class CardDetails extends React.Component{
 
 	deleteComment = async (id) => {
 		await this.props.deleteComment(id)
+		this.props.fetchItineraries()
+	}
+
+	modifyComment = async(id) => {
+		const commentData = {
+			commentID:id,
+			comment:this.state.modComment
+		}
+		await this.props.modifyComment(commentData)
 		this.props.fetchItineraries()
 	}
 
@@ -172,7 +181,7 @@ class CardDetails extends React.Component{
 						</div>
 
 						{item.comments.map((comment) => 
-						<div className='flex justify-center items-center text-center flex-col' key={comment._id}>
+						<div className='flex justify-center items-center text-center flex-col my-5' key={comment._id}>
 							<div className='flex justify-center items-center space-between w-10/12'>
 
 							<div onClick={() => this.deleteComment(comment._id)}>
@@ -187,13 +196,21 @@ class CardDetails extends React.Component{
 							{this.state.users.users.map((user) => {
 								if(comment.userID == user._id){
 									return(
-										<h1 className=''>{user.fullName}</h1>
+										<h1 key={comment._id + '1'} className=''>{user.fullName}</h1>
 									)
 								}
 							})
 							}
 							</div>
+							{this.props.user && this.props.user.id == comment.userID ?
+							<div className='flex justify-center items-center'>
+								<textarea className='w-3/5 h-8 bg-blue-400 m-2 rounded-full' defaultValue={comment.comment} id={comment.comment} onChange={(event) => this.setState({modComment:event.target.value})}></textarea>
+								<button className='bg-gray-50 hover:bg-blue-200 transition duration-300 ease-in rounded-full w-28 h-8 m-2' onClick={() => this.modifyComment(comment._id)}>Upload</button>
+							</div>
+							:
+
 							<h1 className='w-3/5 h-8 bg-blue-400 m-2 rounded-full'>{comment.comment}</h1>
+							}
 						</div>
 						)}
 

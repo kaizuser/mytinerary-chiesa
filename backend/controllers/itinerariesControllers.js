@@ -95,6 +95,7 @@ const itinerariesControllers = {
 	addComment: async (req, res) => {
 		const {tinerary,comment} = req.body.comment
 		const user = req.user.id
+
 		try {
 		    const nuevoComment = await Itineraries.findOneAndUpdate({_id:tinerary}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate("autor", {fullName:1}).populate("comments.userID", {fullName:1})
 		    res.json({ success: true, response:{nuevoComment}, message:"gracias por dejarnos tu comentario" })
@@ -109,6 +110,7 @@ const itinerariesControllers = {
 	modifyComment: async (req, res) => {
 		const {commentID,comment} = req.body.comment
 		const user = req.user.id
+
 		try {
 		    const newComment = await Itineraries.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment": comment}}, {new: true})
 		    console.log(newComment)
@@ -125,12 +127,9 @@ const itinerariesControllers = {
 		const id = req.params.id
 		const user = req.user.id
 
-		console.log(id, user)
-		try {
-		    const deleteComment = await Itineraries.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
-		  console.log(deleteComment)
-		    res.json({ success: true, response:{deleteComment}, message: "has eliminado el comentario" })
-
+		try { 
+			const deleteComment = await Itineraries.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
+			res.json({ success: true, response:{deleteComment}, message: "has eliminado el comentario" })
 		}
 		catch (error) {
 		    console.log(error)
