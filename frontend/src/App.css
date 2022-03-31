@@ -96,6 +96,10 @@ input:checked + div{
 	display:block;
 }
 
+.comments-container:hover > div > .item-profile, .comments-container:hover > div > div > .item-profile{
+	display:block;
+}
+
 @media screen and (max-width:1160px){
 	header{
 		flex-direction:column;

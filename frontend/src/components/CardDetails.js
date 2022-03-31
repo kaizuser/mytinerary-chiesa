@@ -3,11 +3,25 @@ import {connect} from 'react-redux'
 import itinerariesActions from '../redux/actions/itinerariesActions.js'
 import commentsActions from '../redux/actions/commentsActions.js'
 import usersActions from '../redux/actions/usersActions.js'
+import Swal from 'sweetalert2'
 
 
 class CardDetails extends React.Component{
 	constructor(props){
 		super(props)
+		this.Toast = Swal.mixin({
+			toast: true,
+			position: 'center-end',
+			showConfirmButton: false,
+			timer: 3000,
+			timerProgressBar: true,
+			width:'21rem',
+
+			didOpen: (toast) => {
+			toast.addEventListener('mouseenter', Swal.stopTimer)
+			toast.addEventListener('mouseleave', Swal.resumeTimer)
+		}
+		})
 	}
 
 	state = {city:{}, itineraries:[], activities:[], user:{}, addComment:'', modComment:'', users:{}}
@@ -128,7 +142,7 @@ class CardDetails extends React.Component{
 							)
 							:
 							(
-								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16" onClick={() => this.Toast.fire({icon:'error',title:'Sign in to like itineraries'})}>
 								<path fillRule="evenodd" d="M2.854 15.854A.5.5 0 0 1 2 15.5V14H.5a.5.5 0 0 1-.354-.854l1.5-1.5A.5.5 0 0 1 2 11.5h1.793l.53-.53c-.771-.802-1.328-1.58-1.704-2.32-.798-1.575-.775-2.996-.213-4.092C3.426 2.565 6.18 1.809 8 3.233c1.25-.98 2.944-.928 4.212-.152L13.292 2 12.147.854A.5.5 0 0 1 12.5 0h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.854.354L14 2.707l-1.006 1.006c.236.248.44.531.6.845.562 1.096.585 2.517-.213 4.092-.793 1.563-2.395 3.288-5.105 5.08L8 13.912l-.276-.182a21.86 21.86 0 0 1-2.685-2.062l-.539.54V14a.5.5 0 0 1-.146.354l-1.5 1.5Zm2.893-4.894A20.419 20.419 0 0 0 8 12.71c2.456-1.666 3.827-3.207 4.489-4.512.679-1.34.607-2.42.215-3.185-.817-1.595-3.087-2.054-4.346-.761L8 4.62l-.358-.368c-1.259-1.293-3.53-.834-4.346.761-.392.766-.464 1.845.215 3.185.323.636.815 1.33 1.519 2.065l1.866-1.867a.5.5 0 1 1 .708.708L5.747 10.96Z"/>
 								</svg>
 							)
@@ -175,18 +189,18 @@ class CardDetails extends React.Component{
 							<button className='bg-gray-50 hover:bg-blue-200 transition duration-300 ease-in rounded-full w-28 h-8 m-2' onClick={() => this.chargeComment(item._id)}>Comment</button>
 							:
 
-							<button className='bg-gray-50 hover:bg-blue-200 transition duration-300 ease-in rounded-full w-28 h-8 m-2' disabled>Comment</button>
+							<button className='bg-gray-50 hover:bg-blue-200 transition duration-300 ease-in rounded-full w-28 h-8 m-2' onClick={() => this.Toast.fire({icon:'error', title:'Sign in to comment'})}>Comment</button>
 
 							}
 						</div>
 
 						{item.comments.map((comment) => 
-						<div className='flex justify-center items-center text-center flex-col my-5' key={comment._id}>
+						<div className='comments-container flex justify-center items-center text-center flex-col my-5' key={comment._id}>
 							<div className='flex justify-center items-center space-between w-10/12'>
 
 							<div onClick={() => this.deleteComment(comment._id)}>
 							{this.props.user && this.props.user.id == comment.userID ? 
-							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="hover:text-gray-50 transition duration-300 ease-in cursor-pointer" viewBox="0 0 16 16">
+							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="item-profile hidden hover:text-gray-50 transition duration-300 ease-in cursor-pointer" viewBox="0 0 16 16">
 							<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
 							<path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 							</svg>
@@ -205,7 +219,7 @@ class CardDetails extends React.Component{
 							{this.props.user && this.props.user.id == comment.userID ?
 							<div className='flex justify-center items-center'>
 								<textarea className='w-3/5 h-8 bg-blue-400 m-2 rounded-full' defaultValue={comment.comment} id={comment.comment} onChange={(event) => this.setState({modComment:event.target.value})}></textarea>
-								<button className='bg-gray-50 hover:bg-blue-200 transition duration-300 ease-in rounded-full w-28 h-8 m-2' onClick={() => this.modifyComment(comment._id)}>Upload</button>
+								<button className='item-profile hidden bg-gray-50 hover:bg-blue-200 transition duration-300 ease-in rounded-full w-28 h-8 m-2' onClick={() => this.modifyComment(comment._id)}>Upload</button>
 							</div>
 							:
 

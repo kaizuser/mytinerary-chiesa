@@ -4,7 +4,7 @@ const userActions = {
 
     fetchUsers: () =>{
        return async(dispatch, getState) => {
-            const res = await axios.get('http://localhost:4000/api/auth/getUsers')
+            const res = await axios.get('https://mytinerary-chiesa.herokuapp.com/api/auth/getUsers')
             dispatch({
                 type: 'users',
                 payload: res.data.response
@@ -14,7 +14,7 @@ const userActions = {
 
     signUpUser: (userData) => {
         return async (dispatch, getState) => {
-            const res = await axios.post('http://localhost:4000/api/auth/signUp', { userData })
+            const res = await axios.post('https://mytinerary-chiesa.herokuapp.com/api/auth/signUp', { userData })
             dispatch({
                 type: 'message',
                 payload: {
@@ -28,7 +28,7 @@ const userActions = {
     },
     signInUser: (logedUser) => {
         return async (dispatch, getState) => {
-            const user = await axios.post('http://localhost:4000/api/auth/signIn', { logedUser })
+            const user = await axios.post('https://mytinerary-chiesa.herokuapp.com/api/auth/signIn', { logedUser })
             if (user.data.success) {
                 localStorage.setItem('token', user.data.response.token)
                 dispatch({ type: 'user', payload: user.data.response.userData });
@@ -46,7 +46,7 @@ const userActions = {
     },
     SignOutUser: (closeuser) => {
         return async (dispatch, getState) => {
-            const user = axios.post('http://localhost:4000/api/auth/signOut', { closeuser })
+            const user = axios.post('https://mytinerary-chiesa.herokuapp.com/api/auth/signOut', { closeuser })
             localStorage.removeItem('token')
             dispatch({ type: 'user', payload: null});
         }
@@ -54,7 +54,7 @@ const userActions = {
     VerificarToken: (token) => {
 
         return async (dispatch, getState) => {
-            const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
+            const user = await axios.get('https://mytinerary-chiesa.herokuapp.com/api/auth/signInToken', {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }

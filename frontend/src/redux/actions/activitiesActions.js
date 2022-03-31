@@ -4,7 +4,7 @@ const activitiesActions = {
     
     fetchActivities: () =>{
        return async(dispatch, getState) => {
-            const res = await axios.get('http://localhost:4000/api/activities/')
+            const res = await axios.get('https://mytinerary-chiesa.herokuapp.com/api/activities/')
             dispatch({type:'fetch_act', payload:res.data.response})
        }
     },
@@ -13,7 +13,7 @@ const activitiesActions = {
         return async(dispatch, getState) => {
             try {
             
-                const respuesta = await axios.delete('http://localhost:4000/api/activities/'+id)
+                const respuesta = await axios.delete('https://mytinerary-chiesa.herokuapp.com/api/activities/'+id)
 
                 dispatch({type:'delete_act', payload:respuesta.data.respuesta})
 
@@ -25,7 +25,7 @@ const activitiesActions = {
 
     setActivity: (itinerary, name, photo)=>{
         return async(dispatch,getState)=>{
-            const respuesta = await axios.post('http://localhost:4000/api/activities/',{itinerary, name, photo})
+            const respuesta = await axios.post('https://mytinerary-chiesa.herokuapp.com/api/activities/',{itinerary, name, photo})
             dispatch({type:'set_act', payload:respuesta.data.respuesta})
 
         }

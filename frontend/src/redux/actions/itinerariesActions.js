@@ -4,7 +4,7 @@ const itinerariesActions = {
     
     fetchItineraries: () =>{
        return async(dispatch, getState) => {
-            const res = await axios.get('http://localhost:4000/api/itineraries/')
+            const res = await axios.get('https://mytinerary-chiesa.herokuapp.com/api/itineraries/')
             dispatch({type:'fetch_it', payload:res.data.response})
        }
     },
@@ -13,7 +13,7 @@ const itinerariesActions = {
         return async(dispatch, getState) => {
             try {
             
-                const respuesta = await axios.delete('http://localhost:4000/api/itineraries/'+id)
+                const respuesta = await axios.delete('https://mytinerary-chiesa.herokuapp.com/api/itineraries/'+id)
 
                 dispatch({type:'delete_it', payload:respuesta.data.respuesta})
 
@@ -25,7 +25,7 @@ const itinerariesActions = {
 
     setItinerary: (person_name, photo, price, duration, likes, hashtags)=>{
         return async(dispatch,getState)=>{
-            const respuesta = await axios.post('http://localhost:4000/api/itineraries/',{person_name, photo, price, duration, likes, hashtags})
+            const respuesta = await axios.post('https://mytinerary-chiesa.herokuapp.com/api/itineraries/',{person_name, photo, price, duration, likes, hashtags})
             dispatch({type:'set_it', payload:respuesta.data.respuesta})
 
         }
@@ -36,7 +36,7 @@ const itinerariesActions = {
 
         return async () => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/itineraries/likeDislike/${id}`, {},
+                let response = await axios.put(`https://mytinerary-chiesa.herokuapp.com/api/itineraries/likeDislike/${id}`, {},
                 {headers: {
                     Authorization: "Bearer "+token
                 }
