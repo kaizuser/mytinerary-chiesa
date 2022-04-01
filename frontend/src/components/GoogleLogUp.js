@@ -19,7 +19,7 @@ function GoogleLogUp(props) {
   return (
     <GoogleLogin
       className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black"
-      clientId="971845975096-a3gu832l2esbdv2dmp2iktvql4t5imot.apps.googleusercontent.com"
+      clientId="710252764146-n3hvn9i3t5fk752tdoakjufutg1aegqp.apps.googleusercontent.com"
       buttonText="SignUp with Google"
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
